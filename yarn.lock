@@ -245,7 +245,7 @@
 
 "@keycloakify/svelte@git+https://github.com/keycloakify/keycloakify-svelte.git":
   version "0.0.1-rc.0"
-  resolved "git+https://github.com/keycloakify/keycloakify-svelte.git#8baf67761f72dd162855da0265e03020b1c39cda"
+  resolved "git+https://github.com/keycloakify/keycloakify-svelte.git#f4ebaabb81f11c8b286f8344102419d5b830cc0f"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

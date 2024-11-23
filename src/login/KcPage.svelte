@@ -4,11 +4,11 @@
   import type { KcContext } from 'keycloakify/login/KcContext';
   import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
   import type { Component } from 'svelte';
-  import { getI18n } from './i18n';
+  import { useI18n } from './i18n';
 
   const { kcContext }: { kcContext: KcContext } = $props();
 
-  const { i18n } = getI18n({ kcContext });
+  const { i18n } = useI18n({ kcContext });
   const page = async (): Promise<{ default?: Component }> => {
     switch (kcContext.pageId) {
       default:
@@ -26,7 +26,7 @@
   {:else}
     <DefaultPage
       {kcContext}
-      {i18n}
+      i18n={$i18n}
       {classes}
       {Template}
       doUseDefaultCss={true}
