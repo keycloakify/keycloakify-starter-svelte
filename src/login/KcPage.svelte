@@ -1,15 +1,15 @@
 <script lang="ts">
-  import type { KcContext } from "./KcContext";
-  import DefaultPage from "@keycloakify/svelte/login/DefaultPage.svelte";
-  import Template from "@keycloakify/svelte/login/Template.svelte";
+  import DefaultPage from '@keycloakify/svelte/login/DefaultPage.svelte';
+  import Template from '@keycloakify/svelte/login/Template.svelte';
+  import type { KcContext } from 'keycloakify/login/KcContext';
+  import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
+  import type { Component } from 'svelte';
+  import { getI18n } from './i18n';
 
-  const props: { kcContext: KcContext } = $props();
-  import { getI18n } from "./i18n";
-  import type { ClassKey } from "keycloakify/login/lib/kcClsx";
-  const { kcContext } = props;
+  const { kcContext }: { kcContext: KcContext } = $props();
 
   const { i18n } = getI18n({ kcContext });
-  const page = async (): Promise<any> => {
+  const page = async (): Promise<{ default?: Component }> => {
     switch (kcContext.pageId) {
       default:
         return { default: undefined };
@@ -31,7 +31,6 @@
       {Template}
       doUseDefaultCss={true}
       {doMakeUserConfirmPassword}
-    >
-    </DefaultPage>
+    ></DefaultPage>
   {/if}
 {/await}
