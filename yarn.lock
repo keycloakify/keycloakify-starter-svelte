@@ -157,8 +157,9 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@keycloakify/svelte@file:../keycloakify-svelte/dist":
-  version "0.0.0"
+"@keycloakify/svelte@git+https://github.com/keycloakify/keycloakify-svelte.git":
+  version "0.0.1-rc.0"
+  resolved "git+https://github.com/keycloakify/keycloakify-svelte.git#5b3c5e06d5183694a432b3cade1c3693ae53c685"
 
 "@rollup/rollup-android-arm-eabi@4.27.2":
   version "4.27.2"

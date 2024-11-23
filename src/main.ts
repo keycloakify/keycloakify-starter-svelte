@@ -1,5 +1,4 @@
 import { mount } from "svelte";
-import "./app.css";
 import KcPage from "./login/KcPage.svelte";
 
 // The following block can be uncommented to test a specific page with `yarn dev`
@@ -9,7 +8,7 @@ import { getKcContextMock } from "./login/KcPageStory";
 
 if (import.meta.env.DEV) {
     window.kcContext = getKcContextMock({
-        pageId: "register.ftl",
+        pageId: "code.ftl",
         overrides: {}
     });
 }

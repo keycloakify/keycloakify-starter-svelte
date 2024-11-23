@@ -10,7 +10,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json"
   },
   "devDependencies": {
-    "@keycloakify/svelte": "file:/home/luca/Documenti/github/keycloakify-svelte/dist",
+    "@keycloakify/svelte": "git+https://github.com/keycloakify/keycloakify-svelte.git",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@tsconfig/svelte": "^5.0.4",
     "keycloakify": "^11.3.19",
