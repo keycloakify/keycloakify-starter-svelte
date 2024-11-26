@@ -9,7 +9,7 @@ import Spinner from './Spinner.svelte';
 
 if (import.meta.env.DEV) {
   window.kcContext = getKcContextMock({
-    pageId: 'code.ftl',
+    pageId: 'login.ftl',
     overrides: {},
   });
 }

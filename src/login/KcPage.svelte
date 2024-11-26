@@ -26,7 +26,7 @@
   {:else}
     <DefaultPage
       {kcContext}
-      i18n={$i18n}
+      i18n={i18n}
       {classes}
       {Template}
       doUseDefaultCss={true}
