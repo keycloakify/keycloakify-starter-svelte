@@ -1,47 +1,63 @@
-# Svelte + TS + Vite
+<p align="center">
+    <i>🚀 <a href="https://keycloakify.dev">Svelte + Vite Keycloakify</a> v11 starter 🚀</i>
+    <br/>
+    <br/>
+</p>
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+This starter is based on Vite and Svelte.
 
-## Recommended IDE Setup
+# Quick start
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+```bash
+git clone https://github.com/keycloakify/keycloakify-starter-svelte
+cd keycloakify-starter-svelte
+yarn install # Or use an other package manager, just be sure to delete the yarn.lock if you use another package manager.
+```
 
-## Need an official Svelte framework?
+# Testing the theme locally
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+[Documentation](https://docs.keycloakify.dev/testing-your-theme)
 
-## Technical considerations
+# How to customize the theme
 
-**Why use this over SvelteKit?**
+[Documentation](https://docs.keycloakify.dev/customization-strategies)
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+# Building the theme
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+You need to have [Maven](https://maven.apache.org/) installed to build the theme (Maven >= 3.1.1, Java >= 7).  
+The `mvn` command must be in the $PATH.
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+- On macOS: `brew install maven`
+- On Debian/Ubuntu: `sudo apt-get install maven`
+- On Windows: `choco install openjdk` and `choco install maven` (Or download from [here](https://maven.apache.org/download.cgi))
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+```bash
+yarn run build-keycloak-theme
+```
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.  
+You can customize this behavior, see documentation [here](https://docs.keycloakify.dev/targeting-specific-keycloak-versions).
 
-**Why include `.vscode/extensions.json`?**
+# Initializing the account theme
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+```bash
+yarn keycloakify initialize-account-theme
+```
 
-**Why enable `allowJs` in the TS template?**
+# Initializing the email theme
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+```bash
+yarn keycloakify initialize-email-theme
+```
 
-**Why is HMR not preserving my local component state?**
+# Ejecting pages
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+```bash
+yarn keycloakify eject-page
+```
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+# Adding storybook stories
 
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store';
-export default writable(0);
+```bash
+yarn keycloakify add-story
 ```
