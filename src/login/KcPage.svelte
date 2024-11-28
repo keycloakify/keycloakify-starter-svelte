@@ -1,6 +1,6 @@
 <script lang="ts">
-  import DefaultPage from '@keycloakify/svelte/login/DefaultPage.svelte';
   import Template from '@keycloakify/svelte/login/Template.svelte';
+  import UserProfileFormFields from '@keycloakify/svelte/login/components/UserProfileFormFields.svelte';
   import type { KcContext } from 'keycloakify/login/KcContext';
   import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
   import type { Component } from 'svelte';
@@ -9,28 +9,26 @@
   const { kcContext }: { kcContext: KcContext } = $props();
 
   const { i18n } = useI18n({ kcContext });
-  const page = async (): Promise<{ default?: Component }> => {
-    switch (kcContext.pageId) {
-      default:
-        return { default: undefined };
-    }
-  };
 
   const classes = {} satisfies { [key in ClassKey]?: string };
   const doMakeUserConfirmPassword = true;
+  
+  const page = async (): Promise<{ default?: Component<any> }> => {
+    switch (kcContext.pageId) {
+      default:
+        return import('@keycloakify/svelte/login/DefaultPage.svelte');
+    }
+  };
 </script>
 
 {#await page() then { default: Page }}
-  {#if Page}
-    <Page></Page>
-  {:else}
-    <DefaultPage
+    <Page
       {kcContext}
       i18n={i18n}
       {classes}
       {Template}
+      {UserProfileFormFields}
       doUseDefaultCss={true}
       {doMakeUserConfirmPassword}
-    ></DefaultPage>
-  {/if}
+    ></Page>
 {/await}
