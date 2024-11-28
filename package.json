@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
-    "@keycloakify/svelte": "^0.0.1-rc.5",
+    "@keycloakify/svelte": "^0.0.1-rc.7",
     "@storybook/addon-essentials": "^8.4.5",
     "@storybook/addon-interactions": "^8.4.5",
     "@storybook/addon-svelte-csf": "^5.0.0-next.11",
