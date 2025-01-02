@@ -15,8 +15,8 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "keycloakify": "^11.7.0",
-    "@keycloakify/svelte": "^0.1.0",
+    "keycloakify": "^11.7.1",
+    "@keycloakify/svelte": "^0.1.1",
     "@storybook/addon-essentials": "^8.4.5",
     "@storybook/addon-interactions": "^8.4.5",
     "@storybook/addon-svelte-csf": "^5.0.0-next.11",
