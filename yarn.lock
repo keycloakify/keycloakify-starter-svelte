@@ -2107,10 +2107,10 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==
 
-keycloakify@^11.7.1:
-  version "11.7.1"
-  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.7.1.tgz#628d38324b4e733b31bd9c2c46f1d3e5cd8777c1"
-  integrity sha512-m1RIZkM6P5kEaLFJMzkmjoK29vkmEz8J6anJ6P9/khki4KJMp8XMpfrsmWIyPQgxl/d3wWig+4rt/dKXKsY+cQ==
+keycloakify@^11.7.2:
+  version "11.7.2"
+  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.7.2.tgz#9f52b1ffdbdcf49131ad8674075cddd27cc4418b"
+  integrity sha512-eJKy4o8FfeOWRMRGDrMyxjlOivxg8SQgDY+X5fYlKlLMnajQsbZh2r/+NIoPwPUCuB0ZNmuaakB8wqLPuRvj3w==
   dependencies:
     tsafe "^1.8.5"
 
