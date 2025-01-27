@@ -16,5 +16,11 @@
     "isolatedModules": true,
     "moduleDetection": "force"
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]
+  "include": [
+    "src/**/*.ts",
+    "emails/*",
+    "src/**/*.js",
+    "src/**/*.svelte",
+    "vite.config.ts"
+  ],
 }
