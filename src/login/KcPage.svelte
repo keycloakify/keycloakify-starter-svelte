@@ -12,7 +12,7 @@
 
   const classes = {} satisfies { [key in ClassKey]?: string };
   const doMakeUserConfirmPassword = true;
-  
+
   const page = async (): Promise<{ default?: Component<any> }> => {
     switch (kcContext.pageId) {
       default:
@@ -22,13 +22,13 @@
 </script>
 
 {#await page() then { default: Page }}
-    <Page
-      {kcContext}
-      i18n={i18n}
-      {classes}
-      {Template}
-      {UserProfileFormFields}
-      doUseDefaultCss={true}
-      {doMakeUserConfirmPassword}
-    ></Page>
+  <Page
+    {kcContext}
+    {i18n}
+    {classes}
+    {Template}
+    {UserProfileFormFields}
+    doUseDefaultCss={true}
+    {doMakeUserConfirmPassword}
+  ></Page>
 {/await}
