@@ -4,7 +4,7 @@
   import type { ClassKey } from 'keycloakify/account/lib/kcClsx';
   import Spinner from '../Spinner.svelte';
   import { useI18n } from './i18n';
-  import { OidcProvider, initializeOidc } from './oidc';
+  import { OidcProvider } from './oidc';
 
   const { kcContext }: { kcContext: KcContext } = $props();
 
@@ -23,10 +23,7 @@
   const classes = {} satisfies { [key in ClassKey]?: string };
 </script>
 
-<OidcProvider
-  {initializeOidc}
-  Fallback={Spinner}
->
+<OidcProvider Fallback={Spinner}>
   {#await page() then { default: Page }}
     <Page
       kcContext={kcContext as never}

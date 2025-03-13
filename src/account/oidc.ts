@@ -32,6 +32,6 @@ const oidcParams = async () => {
   };
 };
 
-export const { OidcProvider, useOidc, getOidc, initializeOidc } = import.meta.env.DEV
+export const { OidcProvider, useOidc, getOidc } = import.meta.env.DEV
   ? createMockSvelteOidc(oidcMockParams)
   : createSvelteOidc(oidcParams);

@@ -92,7 +92,6 @@ export namespace OidcSvelte {
 
 type OidcSvelteApi<DecodedIdToken extends Record<string, unknown>, AutoLogin extends boolean> = {
   OidcProvider: Component<OidcProviderProps>;
-  initializeOidc: Promise<OidcInitializationError | Oidc<DecodedIdToken>>;
   useOidc: AutoLogin extends true
     ? {
         (params?: { assert: 'user logged in' }): OidcSvelte.LoggedIn<DecodedIdToken>;
