@@ -6,12 +6,13 @@ import { Deferred } from 'oidc-spa/tools/Deferred';
 import type { ValueOrAsyncGetter } from 'oidc-spa/tools/ValueOrAsyncGetter';
 import { assert, id, type Equals, type Param0 } from 'oidc-spa/vendor/frontend/tsafe';
 import { getContext, onMount, type Component } from 'svelte';
-import { get, type Writable } from 'svelte/store';
 import OidcProvider from './OidcProvider.svelte';
 import type { OidcProviderProps } from './OidcProviderProps';
 import type { WithLoginEnforcedProps } from './WithLoginEnforced';
 import WithLoginEnforced from './WithLoginEnforced.svelte';
 import { oidcContextKey } from './oidc.context';
+import { updateOidcStore } from './oidc.store';
+import { get, type Readable } from 'svelte/store';
 
 export type OidcSvelte<DecodedIdToken extends Record<string, unknown>> =
   | OidcSvelte.NotLoggedIn
@@ -71,8 +72,13 @@ export namespace OidcSvelte {
     isNewBrowserSession: boolean;
   };
 
+  export type OidcStore<DecodedIdToken extends Record<string, unknown>> =
+    | Oidc<DecodedIdToken>
+    | OidcInitializationError
+    | undefined;
+
   export type Context<DecodedIdToken extends Record<string, unknown>> =
-    | { oidc: Oidc<DecodedIdToken>; fallback?: Component }
+    | { oidc: Readable<Oidc<DecodedIdToken>>; fallback?: Component }
     | undefined;
 }
 {
@@ -154,15 +160,18 @@ export function createOidcSvelteApi_dependencyInjection<
     return oidc;
   })();
 
+  prOidcOrInitializationError.then((oidc) => {
+    updateOidcStore(oidc);
+  });
+
   function useOidc(params?: { assert?: 'user logged in' | 'user not logged in' }): OidcSvelte<DecodedIdToken> {
     const { assert: assert_params } = params ?? {};
 
-    const context = getContext<Writable<OidcSvelte.Context<DecodedIdToken>>>(oidcContextKey);
-    const contextValue = get(context);
+    const contextValue = getContext<OidcSvelte.Context<DecodedIdToken>>(oidcContextKey);
 
     assert(contextValue !== undefined, 'You must use useOidc inside the corresponding OidcProvider');
 
-    const { oidc } = contextValue;
+    const oidc = get(contextValue.oidc);
 
     check_assertion: {
       if (assert_params === undefined) {
@@ -281,7 +290,6 @@ export function createOidcSvelteApi_dependencyInjection<
       isNewBrowserSession: oidc.isNewBrowserSession,
       backFromAuthServer: oidc.backFromAuthServer,
     };
-
     return oidcSvelte;
   }
 
@@ -314,7 +322,6 @@ export function createOidcSvelteApi_dependencyInjection<
     useOidc,
     getOidc,
     WithLoginEnforced,
-    initializeOidc: prOidcOrInitializationError,
   };
 
   // @ts-expect-error: We know what we are doing

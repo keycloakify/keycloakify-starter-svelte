@@ -1,20 +1,14 @@
 <script lang="ts">
-  import { OidcInitializationError, type Oidc } from 'oidc-spa';
-  import { onMount, setContext } from 'svelte';
-  import { writable } from 'svelte/store';
+  import { OidcInitializationError } from 'oidc-spa';
+  import { setContext } from 'svelte';
   import type { OidcProviderProps } from './OidcProviderProps';
   import { oidcContextKey } from './oidc.context';
-  import type { OidcSvelte } from './svelte';
+  import { getOidcStore } from './oidc.store';
 
-  const { Fallback, ErrorFallback, children, initializeOidc }: OidcProviderProps = $props();
+  const { Fallback, ErrorFallback, children }: OidcProviderProps = $props();
 
-  const oidcOrInitializationError = writable<OidcSvelte.Context<Record<string, unknown>>>(undefined);
-  setContext(oidcContextKey, oidcOrInitializationError);
-  onMount(() => {
-    initializeOidc.then((oidc) => {
-      $oidcOrInitializationError = { oidc: oidc as Oidc<Record<string, unknown>>, fallback: Fallback };
-    });
-  });
+  const oidcOrInitializationError = getOidcStore();
+  setContext(oidcContextKey, { oidc: oidcOrInitializationError, fallback: Fallback });
 </script>
 
 {#if $oidcOrInitializationError === undefined}
