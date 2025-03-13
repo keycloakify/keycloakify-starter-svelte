@@ -7,7 +7,7 @@ const oidcMockParams = {
   autoLogin: true as const,
 };
 
-const oidcParams = (() => {
+const oidcParams = async () => {
   const { kcHttpRelativePath, realm } = (() => {
     const [
       // "" or "/auth"
@@ -30,7 +30,7 @@ const oidcParams = (() => {
     homeUrl: `${kcHttpRelativePath ?? ''}/realms/${realm}/account/`,
     autoLogin: true as const,
   };
-})();
+};
 
 export const { OidcProvider, useOidc, getOidc, initializeOidc } = import.meta.env.DEV
   ? createMockSvelteOidc(oidcMockParams)
