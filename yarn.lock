@@ -1478,6 +1478,11 @@ npm-check-updates@^18.0.1:
   resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-18.0.1.tgz#72b4dd6bf12749e3634ba96855bc1ed3d153fe98"
   integrity sha512-MO7mLp/8nm6kZNLLyPgz4gHmr9tLoU+pWPLdXuGAx+oZydBHkHWN0ibTonsrfwC2WEQNIQxuZagYwB67JQpAuw==
 
+oidc-spa@^6.15.0:
+  version "6.15.0"
+  resolved "https://registry.yarnpkg.com/oidc-spa/-/oidc-spa-6.15.0.tgz#ee21ae6448361d2c16077f90a9f836d8cde0c88b"
+  integrity sha512-oi05e2GggIrHj7s0+XcXOnaMgPej1l1xMexotkuxTUOxhQGP/0gILe7MPgt8vopUlif43ErTb2Pq5gGdUMbXzQ==
+
 open@^8.0.4:
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/open/-/open-8.4.2.tgz#5b5ffe2a8f793dcd2aad73e550cb87b59cb084f9"
