@@ -1,16 +1,13 @@
-import type { ParamsOfCreateOidc } from 'oidc-spa';
-import type { ValueOrAsyncGetter } from 'oidc-spa/tools/ValueOrAsyncGetter';
-import type { ParamsOfCreateMockOidc } from '../mock';
 import { createMockSvelteOidc } from '../mock/svelte';
 import { createSvelteOidc } from '../svelte';
 
-export const oidcMockParams: ParamsOfCreateMockOidc<Record<string, unknown>, true> = {
-  isUserInitiallyLoggedIn: true,
+const oidcMockParams = {
+  isUserInitiallyLoggedIn: true as const,
   homeUrl: import.meta.env.BASE_URL,
-  autoLogin: true,
+  autoLogin: true as const,
 };
 
-export const oidcParams: ValueOrAsyncGetter<ParamsOfCreateOidc<Record<string, unknown>, true>> = async () => {
+const oidcParams = (() => {
   const { kcHttpRelativePath, realm } = (() => {
     const [
       // "" or "/auth"
@@ -31,9 +28,9 @@ export const oidcParams: ValueOrAsyncGetter<ParamsOfCreateOidc<Record<string, un
     issuerUri: `${window.location.origin}${kcHttpRelativePath ?? ''}/realms/${realm}`,
     clientId: 'account-console',
     homeUrl: `${kcHttpRelativePath ?? ''}/realms/${realm}/account/`,
-    autoLogin: true,
-  } satisfies ParamsOfCreateOidc<Record<string, unknown>, true>;
-};
+    autoLogin: true as const,
+  };
+})();
 
 export const { OidcProvider, useOidc, getOidc, initializeOidc } = import.meta.env.DEV
   ? createMockSvelteOidc(oidcMockParams)
