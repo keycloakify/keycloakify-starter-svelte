@@ -15,6 +15,7 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "keycloakify": "^11.8.20",
     "@keycloakify/svelte": "^0.1.6",
     "@storybook/addon-essentials": "^8.6.4",
     "@storybook/addon-interactions": "^8.6.4",
@@ -33,7 +34,6 @@
     "eslint-plugin-svelte": "^3.1.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^16.0.0",
-    "keycloakify": "^11.8.18",
     "npm-check-updates": "^17.1.15",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.3.3",
