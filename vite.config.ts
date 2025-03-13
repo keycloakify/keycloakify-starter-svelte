@@ -8,7 +8,7 @@ export default defineConfig({
     svelte(),
     keycloakify({
       themeName: 'keycloakify-starter-svelte',
-      accountThemeImplementation: 'none',
+      accountThemeImplementation: 'Multi-Page',
     }),
   ],
 });

@@ -32,6 +32,7 @@
     "globals": "^16.3.0",
     "keycloakify": "^11.9.2",
     "npm-check-updates": "^18.0.2",
+    "oidc-spa": "^6.15.1",
     "prettier": "^3.6.2",
     "prettier-plugin-svelte": "^3.4.0",
     "storybook": "^9.1.2",
