@@ -316,10 +316,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@keycloakify/svelte@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@keycloakify/svelte/-/svelte-0.1.7.tgz#e0f185bbf0ecaabdbe00980563b0390059fec57b"
-  integrity sha512-EKZ6w9lWkVxDLCtV58hmAezhP+e3JzX70taaEu5L9i4BkQ4Gq4MnR/q8MV0D6t6zYla13Hr4xJWVUeG2Si7MiQ==
+"@keycloakify/svelte@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@keycloakify/svelte/-/svelte-0.1.8.tgz#914c48d2726e7b2945dd5f11c376652a072cd0f6"
+  integrity sha512-JSXi+55r5Vh9aRY7kROJfU5Bmnv1MadxtkSd3bhxzCr5axCqPGbW1h6QHwC9oatYoLH3ifN8RP2ofJE5jfvvkw==
 
 "@mdx-js/react@^3.0.0":
   version "3.1.0"
@@ -2049,10 +2049,10 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==
 
-keycloakify@^11.8.22:
-  version "11.8.22"
-  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.8.22.tgz#87082c911c1277ddf2c63755cec3c1909abf8888"
-  integrity sha512-OngWbF5vfzcKwN0cbUskExon3xH8GjURN33GHuBrPiWwR2n0sybyHj/A9IbPOlqYBapZxRKZAexwlTI55vrsbg==
+keycloakify@^11.8.30:
+  version "11.8.30"
+  resolved "https://registry.yarnpkg.com/keycloakify/-/keycloakify-11.8.30.tgz#00607585cd0603fbae6b39946da5c0cd5a37d1f2"
+  integrity sha512-TrgEbHoFcnMRGBtB5xbFJr5a0a/AXRgLm1upL5ZgoA2qS2OaEqFM0KqfjLOoKDQ7cO1VEHcCnuv7fElIMJynsw==
   dependencies:
     tsafe "^1.8.5"
 
