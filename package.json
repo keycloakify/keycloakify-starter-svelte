@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "keycloakify": "^11.8.50",
-    "@keycloakify/svelte": "^0.1.9",
+    "@keycloakify/svelte": "^0.1.12",
     "@storybook/addon-svelte-csf": "5.0.6",
     "@storybook/svelte-vite": "^9.0.16",
     "@storybook/svelte": "^9.0.16",
