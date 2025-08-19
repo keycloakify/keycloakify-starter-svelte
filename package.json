@@ -15,7 +15,7 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "@keycloakify/svelte": "^0.2.2",
+    "@keycloakify/svelte": "^0.2.3",
     "@storybook/addon-docs": "^9.1.2",
     "@storybook/addon-svelte-csf": "5.0.7",
     "@storybook/svelte": "^9.1.2",
@@ -30,7 +30,7 @@
     "eslint-plugin-svelte": "^3.11.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^16.3.0",
-    "keycloakify": "^11.9.2",
+    "keycloakify": "^11.9.3",
     "npm-check-updates": "^18.0.2",
     "prettier": "^3.6.2",
     "prettier-plugin-svelte": "^3.4.0",
