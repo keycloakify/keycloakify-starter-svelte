@@ -9,9 +9,9 @@ import ts from 'typescript-eslint';
 export default ts.config(
   js.configs.recommended,
   ...ts.configs.recommended,
-  ...svelte.configs['flat/recommended'],
+  ...svelte.configs.recommended,
   prettierConfig,
-  ...svelte.configs['flat/prettier'],
+  ...svelte.configs.prettier,
   {
     plugins: { prettier, 'unused-imports': unusedImports },
     rules: {
@@ -24,6 +24,12 @@ export default ts.config(
         ...globals.browser,
         ...globals.node,
       },
+    },
+  },
+  {
+    files: ['**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-namespace': 'off',
     },
   },
   {
@@ -51,6 +57,6 @@ export default ts.config(
     },
   },
   {
-    ignores: ['build/', '.svelte-kit/', 'dist/', 'public/'],
+    ignores: ['build/', '.svelte-kit/', 'dist/', 'stories/', 'CHANGELOG.md'],
   },
 );
