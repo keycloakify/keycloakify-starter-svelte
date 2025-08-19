@@ -1,7 +1,8 @@
-import { derived } from 'svelte/store';
+/* eslint-disable @typescript-eslint/no-namespace */
 import { assert } from 'tsafe/assert';
 import { useExclusiveAppInstanceEffect } from './useExclusiveAppInstanceEffect';
 import { useReducer } from './useReducer';
+import { get } from 'svelte/store';
 
 export type ScriptTag = ScriptTag.TextContent | ScriptTag.Src;
 
@@ -24,7 +25,7 @@ export function useInsertScriptTags(params: { effectId: string; scriptTags: Scri
   const [isInsertScriptTagsCalled, setIsInsertScriptTagsCalledToTrue] = useReducer(() => true, false);
 
   useExclusiveAppInstanceEffect({
-    isEnabled: derived(isInsertScriptTagsCalled, (called) => called && scriptTags.length !== 0),
+    isEnabled: scriptTags.length !== 0 && get(isInsertScriptTagsCalled),
     effectId: `useInsertScriptTags_${effectId}`,
     effect: () => {
       for (const scriptTag of scriptTags) {
@@ -76,9 +77,7 @@ export function useInsertScriptTags(params: { effectId: string; scriptTags: Scri
     },
   });
 
-  const insertScriptTags = () => {
-    setIsInsertScriptTagsCalledToTrue();
-  };
+  const insertScriptTags = () => setIsInsertScriptTagsCalledToTrue();
 
   return { insertScriptTags };
 }

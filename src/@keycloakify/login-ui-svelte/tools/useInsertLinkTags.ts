@@ -1,4 +1,3 @@
-import { readable } from 'svelte/store';
 import { useExclusiveAppInstanceEffect } from './useExclusiveAppInstanceEffect';
 import { useReducer } from './useReducer';
 
@@ -14,7 +13,7 @@ export function useInsertLinkTags(params: { effectId: string; hrefs: string[] })
   const [areAllStyleSheetsLoaded, setAllStyleSheetsLoaded] = useReducer(() => true, hrefs.length === 0 ? true : false);
 
   useExclusiveAppInstanceEffect({
-    isEnabled: readable(hrefs.length !== 0),
+    isEnabled: hrefs.length !== 0,
     effectId: `useInsertLinkTags_${effectId}`,
     effect: async () => {
       let lastMountedHtmlElement: HTMLLinkElement | undefined = undefined;

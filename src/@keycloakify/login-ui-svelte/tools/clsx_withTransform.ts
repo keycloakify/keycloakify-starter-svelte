@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { assert } from 'tsafe/assert';
 import { typeGuard } from 'tsafe/typeGuard';
 

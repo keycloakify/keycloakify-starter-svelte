@@ -3,7 +3,7 @@ import type {
   LanguageTag as LanguageTag_defaultSet,
   MessageKey as MessageKey_defaultSet,
 } from '../../login-ui/core/i18n/messages_defaultSet/types';
-import { type ReturnTypeOfCreateUseI18n, createUseI18n } from './getI18n';
+import { type ReturnTypeOfCreateUseI18n, createUseI18n } from './useI18n';
 
 export type I18nBuilder<
   ThemeName extends string = never,
