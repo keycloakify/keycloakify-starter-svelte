@@ -24,3 +24,5 @@ declare global {
     kcContext?: KcContext;
   }
 }
+// NOTE: This is exported here only because in Webpack environnement it works differently
+export const BASE_URL = import.meta.env.BASE_URL;
