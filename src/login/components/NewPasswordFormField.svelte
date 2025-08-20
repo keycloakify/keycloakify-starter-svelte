@@ -78,15 +78,18 @@
           return msg('');
       }
     })()}
-    error={createRawSnippet(() => ({
-      render: () =>
-        displayableErrors
-          .map(
-            ({ errorMessageStr }, i) =>
-              `${errorMessageStr}${displayableErrors.length - 1 !== i ? '<br />' : undefined}`,
-          )
-          .join(''),
-    }))}
+    error={displayableErrors?.length
+      ? createRawSnippet(() => ({
+          render: () => {
+            return displayableErrors
+              .map(
+                ({ errorMessageStr }, i) =>
+                  `${errorMessageStr}${displayableErrors.length - 1 !== i ? '<br />' : undefined}`,
+              )
+              .join('');
+          },
+        }))
+      : undefined}
     renderInput={(inputProps) =>
       createRawSnippet(() => ({
         render: () => `<input
