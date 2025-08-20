@@ -17,7 +17,7 @@ export const kcEnvNames: KcEnvName[] = [];
 
 export const kcEnvDefaults: Record<KcEnvName, string> = {};
 
-export type KcContext = import('./login/KcContext').KcContext;
+export type KcContext = import('./login/KcContext.gen').KcContext;
 
 declare global {
   interface Window {

@@ -22,7 +22,7 @@
   {doUseDefaultCss}
   {classes}
 >
-  #{#if Provider === undefined}
+  {#if Provider === undefined}
     {@render children()}
   {:else}
     <Provider>{children}</Provider>

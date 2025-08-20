@@ -5,7 +5,9 @@ export function initializeDarkMode(params: { htmlDarkModeClassName: string }) {
 
   const setColorScheme = (params: { isDark: boolean }) => {
     const { isDark } = params;
-    document.documentElement.classList[isDark ? 'add' : 'remove'](htmlDarkModeClassName);
+    htmlDarkModeClassName.split(' ').forEach((className) => {
+      document.documentElement.classList[isDark ? 'add' : 'remove'](className);
+    });
 
     insertOrUpdateMetaTag({
       name: 'color-scheme',
