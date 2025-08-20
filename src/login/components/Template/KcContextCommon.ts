@@ -1,8 +1,13 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { assert, type Equals } from 'tsafe/assert';
 import { id } from 'tsafe/id';
+import { type KcEnvName, type ThemeName, themeNames } from '../../../kc.gen';
 
 export type KcContextCommon = {
+  themeType: 'login';
+  themeName: ThemeName;
+  properties: Record<KcEnvName, string>;
+  themeVersion: string;
+
   // NEW:
   darkMode?: boolean;
   authenticationSession?: {
@@ -10,10 +15,7 @@ export type KcContextCommon = {
   };
   social?: Social;
 
-  themeVersion: string;
   keycloakifyVersion: string;
-  themeType: 'login';
-  themeName: string;
   url: {
     loginAction: string;
     loginRestartFlowUrl: string;
@@ -91,7 +93,6 @@ export type KcContextCommon = {
 
     getFirstError: (...fieldNames: string[]) => string;
   };
-  properties: {};
   'x-keycloakify': {
     messages: Record<string, string>;
   };
@@ -287,7 +288,7 @@ export const kcContextCommonMock: KcContextCommon = {
   themeVersion: '0.0.0',
   keycloakifyVersion: '0.0.0',
   themeType: 'login',
-  themeName: 'my-theme-name',
+  themeName: themeNames[0],
   url: {
     loginAction: '#',
     loginRestartFlowUrl: '#',
@@ -353,6 +354,11 @@ export const kcContextCommonMock: KcContextCommon = {
         ['th', 'ไทย'],
         ['uk', 'Українська'],
         ['zh-TW', '中文繁體'],
+        ['hr', 'Hrvatski'],
+        ['ko', '한국어'],
+        ['ky', 'Кыргызча'],
+        ['ro', 'Română'],
+        ['sl', 'Slovenščina'],
         /* spell-checker: enable */
       ] as const
     ).map(([languageTag, label]) => {
@@ -363,8 +369,9 @@ export const kcContextCommonMock: KcContextCommon = {
         type Missing = Exclude<Expected, Got>;
         type Unexpected = Exclude<Got, Expected>;
 
-        assert<Equals<Missing, never>>();
-        assert<Equals<Unexpected, never>>();
+        assert<Equals<Missing, never>>;
+        // @ts-expect-error: assert
+        assert<Equals<Unexpected, never>>;
       }
 
       return {

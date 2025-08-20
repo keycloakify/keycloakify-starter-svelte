@@ -30,6 +30,7 @@ export default ts.config(
     files: ['**/*.ts'],
     rules: {
       '@typescript-eslint/no-namespace': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
     },
   },
   {
