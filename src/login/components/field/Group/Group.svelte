@@ -8,7 +8,7 @@
     className?: string;
     style?: string;
     inputId: string;
-    label: Snippet;
+    label?: Snippet;
     error?: Snippet;
     required?: boolean;
     children: Snippet;
@@ -27,7 +27,7 @@
       for={inputId}
       class={kcClsx('kcFormLabelClass')}
     >
-      <span class={kcClsx('kcFormLabelTextClass')}>{@render label()}</span>
+      <span class={kcClsx('kcFormLabelTextClass')}>{@render label?.()}</span>
       {#if required}
         <span
           class={kcClsx('kcInputRequiredClass')}
