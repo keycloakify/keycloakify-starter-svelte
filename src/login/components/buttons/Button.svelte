@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { HTMLButtonAttributes } from 'svelte/elements';
   import { useKcClsx } from '../../../@keycloakify/login-ui-svelte/useKcClsx';
+  import type { Snippet } from 'svelte';
 
-  type Props = HTMLButtonAttributes;
+  type Props = HTMLButtonAttributes & { children: Snippet };
   const props: Props = $props();
   const { kcClsx } = useKcClsx();
 </script>
@@ -13,4 +14,6 @@ kcButtonClass for some reason -->
 <button
   {...props}
   class={props.class || kcClsx('kcButtonPrimaryClass')}
-></button>
+>
+  {@render props.children()}
+</button>
