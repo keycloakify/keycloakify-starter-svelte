@@ -117,7 +117,49 @@
           return msg('password');
       }
     })()}
-    error={displayableErrors?.length ? error : undefined}
-    renderInput={input}
+    error={displayableErrors?.length
+      ? createRawSnippet(() => ({
+          render: () => {
+            return displayableErrors
+              .map(
+                ({ errorMessageStr }, i) =>
+                  `${errorMessageStr}${displayableErrors.length - 1 !== i ? '<br />' : undefined}`,
+              )
+              .join('');
+          },
+        }))
+      : undefined}
+    renderInput={(inputProps) =>
+      createRawSnippet(() => ({
+        render: () => `<input
+                            name="${attribute.name}"
+                            autocomplete="new-password"
+                            value="${value}"
+                            autofocus="${((): boolean => {
+                              switch (usecase.pageId) {
+                                case 'register.ftl':
+                                  return false;
+                                case 'login-update-password.ftl':
+                                  return true;
+                              }
+                            })()}"
+                        />`,
+        setup: (element: Element) => {
+          (element as HTMLInputElement).id = inputProps.id;
+          (element as HTMLInputElement).ariaInvalid = inputProps['aria-invalid'] ?? null;
+          (element as HTMLInputElement).type = inputProps.type;
+          (element as HTMLInputElement).onchange = (event) =>
+            dispatchFormAction('formAction', {
+              action: 'update',
+              name: attribute.name,
+              value: (event.target as HTMLInputElement).value,
+            });
+          (element as HTMLInputElement).onblur = () =>
+            dispatchFormAction('formAction', {
+              action: 'focus lost',
+              name: attribute.name,
+            });
+        },
+      }))}
   />
 {/each}
