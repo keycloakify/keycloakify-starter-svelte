@@ -9,7 +9,7 @@
   import NewPasswordField from '../../components/NewPasswordFormField.svelte';
   import TermsAcceptance from '../../components/TermsAcceptance.svelte';
   import { UserProfileFormFields } from '../../components/UserProfileFormFields';
-  import { ParamsOfBeforeAfterFields } from '../../components/UserProfileFormFields/UserProfileFormFieldsProps';
+  import type { ParamsOfBeforeAfterFields } from '../../components/UserProfileFormFields/UserProfileFormFieldsProps';
   import { useI18n } from '../../i18n';
   import { REQUIRE_CONFIRM_PASSWORD } from './REQUIRE_CONFIRM_PASSWORD';
   import { useRecaptchaIfEnabled } from './useRecaptcha';
