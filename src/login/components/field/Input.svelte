@@ -6,7 +6,7 @@
 
   export type Props = {
     className?: string;
-    label: Snippet;
+    label?: Snippet;
     required?: boolean;
     error?: Snippet;
     renderInput: (inputProps: { type: 'text'; id: string; 'aria-invalid': true | undefined }) => Snippet;

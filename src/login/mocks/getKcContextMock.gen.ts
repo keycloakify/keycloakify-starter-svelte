@@ -3,6 +3,7 @@ import type { DeepPartial } from '../../@keycloakify/login-ui-svelte/tools/DeepP
 import { structuredCloneButFunctions } from '../../@keycloakify/login-ui-svelte/tools/structuredCloneButFunctions';
 import type { KcContext } from '../KcContext.gen';
 
+import { kcContextMock as kcContextMock_code } from '../pages/code/KcContext';
 import { kcContextMock as kcContextMock_login } from '../pages/login/KcContext';
 import { kcContextMock as kcContextMock_register } from '../pages/register/KcContext';
 
@@ -19,6 +20,8 @@ export function getKcContextMock<PageId extends KcContext['pageId']>(params: {
           return kcContextMock_login;
         case 'register.ftl':
           return kcContextMock_register;
+        case 'code.ftl':
+          return kcContextMock_code;
       }
     })(),
   );
