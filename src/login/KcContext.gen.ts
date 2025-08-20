@@ -4,7 +4,8 @@ export type KcContext =
   | import('./pages/login/KcContext').KcContext
   | import('./pages/register/KcContext').KcContext
   | import('./pages/code/KcContext').KcContext
-  | import('./pages/delete-account-confirm/KcContext').KcContext;
+  | import('./pages/delete-account-confirm/KcContext').KcContext
+  | import('./pages/delete-credential/KcContext').KcContext;
 
 const KC_CONTEXT_KEY = Symbol('kcContext');
 

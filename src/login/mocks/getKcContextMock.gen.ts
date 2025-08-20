@@ -4,9 +4,10 @@ import { structuredCloneButFunctions } from '../../@keycloakify/login-ui-svelte/
 import type { KcContext } from '../KcContext.gen';
 
 import { kcContextMock as kcContextMock_code } from '../pages/code/KcContext';
+import { kcContextMock as kcContextMock_delete_account_confirm } from '../pages/delete-account-confirm/KcContext';
+import { kcContextMock as kcContextMock_delete_credential } from '../pages/delete-credential/KcContext';
 import { kcContextMock as kcContextMock_login } from '../pages/login/KcContext';
 import { kcContextMock as kcContextMock_register } from '../pages/register/KcContext';
-import { kcContextMock as kcContextMock_delete_account_confirm } from '../pages/delete-account-confirm/KcContext';
 
 export function getKcContextMock<PageId extends KcContext['pageId']>(params: {
   pageId: PageId;
@@ -25,6 +26,8 @@ export function getKcContextMock<PageId extends KcContext['pageId']>(params: {
           return kcContextMock_code;
         case 'delete-account-confirm.ftl':
           return kcContextMock_delete_account_confirm;
+        case 'delete-credential.ftl':
+          return kcContextMock_delete_credential;
       }
     })(),
   );

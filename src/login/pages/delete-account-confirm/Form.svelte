@@ -49,7 +49,6 @@
     <Button
       class={kcClsx('kcButtonPrimaryClass')}
       id="kc-submit"
-      name="login"
       type="submit"
     >
       {@render msg('doConfirmDelete')()}

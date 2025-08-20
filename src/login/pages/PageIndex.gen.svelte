@@ -16,6 +16,8 @@
           return import('./code');
         case 'delete-account-confirm.ftl':
           return import('./delete-account-confirm');
+        case 'delete-credential.ftl':
+          return import('./delete-credential');
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       assert<Equals<typeof kcContext, never>>;
