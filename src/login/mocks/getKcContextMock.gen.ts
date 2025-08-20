@@ -9,6 +9,7 @@ import { kcContextMock as kcContextMock_delete_credential } from '../pages/delet
 import { kcContextMock as kcContextMock_link_idp_action } from '../pages/link-idp-action/KcContext';
 import { kcContextMock as kcContextMock_login } from '../pages/login/KcContext';
 import { kcContextMock as kcContextMock_register } from '../pages/register/KcContext';
+import { kcContextMock as kcContextMock_login_config_totp } from '../pages/login-config-totp/KcContext';
 
 export function getKcContextMock<PageId extends KcContext['pageId']>(params: {
   pageId: PageId;
@@ -31,6 +32,8 @@ export function getKcContextMock<PageId extends KcContext['pageId']>(params: {
           return kcContextMock_delete_credential;
         case 'link-idp-action.ftl':
           return kcContextMock_link_idp_action;
+        case 'login-config-totp.ftl':
+          return kcContextMock_login_config_totp;
       }
     })(),
   );

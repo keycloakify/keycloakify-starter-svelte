@@ -4,7 +4,7 @@ import { getKcContextMock } from './login/mocks/getKcContextMock.gen';
 import Spinner from './Spinner.svelte';
 
 const kcContext = getKcContextMock({
-  pageId: 'link-idp-action.ftl',
+  pageId: 'login-config-totp.ftl',
   overrides: {},
 });
 

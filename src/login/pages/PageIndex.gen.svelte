@@ -20,6 +20,8 @@
           return import('./delete-credential');
         case 'link-idp-action.ftl':
           return import('./link-idp-action');
+        case 'login-config-totp.ftl':
+          return import('./login-config-totp');
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       assert<Equals<typeof kcContext, never>>;

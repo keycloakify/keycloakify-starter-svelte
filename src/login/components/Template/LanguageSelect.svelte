@@ -27,7 +27,10 @@
         value={currentLanguage.languageTag}
       >
         {#each enabledLanguages as { languageTag, label } (languageTag)}
-          <option value={languageTag}>
+          <option
+            value={languageTag}
+            selected={currentLanguage.languageTag === languageTag}
+          >
             {label}
           </option>
         {/each}

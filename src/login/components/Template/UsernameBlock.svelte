@@ -31,7 +31,7 @@
             <input
               id={inputId}
               value={kcContext.auth.attemptedUsername}
-              readOnly
+              readonly
             />
           </span>
         </div>
