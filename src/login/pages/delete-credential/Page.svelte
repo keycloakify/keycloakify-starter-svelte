@@ -16,6 +16,7 @@
 {/snippet}
 
 <Template
+  displayMessage={false}
   slots={{
     header: msg('deleteCredentialTitle', kcContext.credentialLabel),
     form: form,
