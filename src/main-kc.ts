@@ -1,6 +1,5 @@
 import { mount } from 'svelte';
 import KcPage from './kc.gen.svelte';
-import Spinner from './Spinner.svelte';
 
 if (!window.kcContext) {
   throw new Error('No Keycloak context');
@@ -8,7 +7,7 @@ if (!window.kcContext) {
 
 const app = mount(KcPage, {
   target: document.getElementById('kc-root')!,
-  props: { kcContext: window.kcContext, Fallback: Spinner },
+  props: { kcContext: window.kcContext },
 });
 
 export default app;
