@@ -16,6 +16,7 @@
 {/snippet}
 
 <Template
+  displayMessage={!kcContext.messagesPerField.existsError('password')}
   slots={{
     header: msg('doLogIn'),
     form: form,
