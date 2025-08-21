@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { i18nBuilder, useI18n as useI18n_internal } from '../@keycloakify/login-ui-svelte/i18n';
+import { i18nBuilder, useI18n_internal } from '../@keycloakify/login-ui-svelte/i18n';
 import type { ThemeName } from '../kc.gen';
 
 /** @see: https://docs.keycloakify.dev/features/i18n */
