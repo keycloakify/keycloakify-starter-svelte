@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { createRawSnippet } from 'svelte';
   import { assert } from 'tsafe';
   import { kcSanitize } from '../../../@keycloakify/login-ui-svelte/kcSanitize';
   import Input from '../../components/field/Input.svelte';
@@ -17,16 +16,18 @@
 <div id="kc-code">
   {#if code.success}
     <p>{@render msg('copyCodeInstruction')()}</p>
+    {#snippet input(inputProps: { type: 'text'; id: string; 'aria-invalid': 'true' | undefined })}
+      <input
+        id="code"
+        name="code"
+        value={code.code}
+        type={inputProps.type}
+        aria-invalid={inputProps['aria-invalid']}
+      />
+    {/snippet}
     <Input
       label={undefined}
-      renderInput={() =>
-        createRawSnippet(() => ({
-          render: () => `<input
-                            id="code"
-                            name="code"
-                            value="${code.code}"
-                        />`,
-        }))}
+      renderInput={() => input}
     />
   {:else if code.error}
     <p id="error">{kcSanitize(code.error)}</p>

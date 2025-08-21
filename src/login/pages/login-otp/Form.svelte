@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { createRawSnippet } from 'svelte';
   import { assert } from 'tsafe';
   import { kcSanitize } from '../../../@keycloakify/login-ui-svelte/kcSanitize';
   import { clsx } from '../../../@keycloakify/login-ui-svelte/tools/clsx';
@@ -71,14 +70,19 @@
   {#snippet error()}
     {kcSanitize(messagesPerField.get('totp'))}
   {/snippet}
+  {#snippet input(inputProps: { type: 'text'; id: string; 'aria-invalid': 'true' | undefined })}
+    <input
+      id="otp"
+      name="otp"
+      autocomplete="one-time-code"
+      type={inputProps.type}
+      aria-invalid={inputProps['aria-invalid']}
+      autofocus
+    />
+  {/snippet}
   <Input
     label={msg('loginOtpOneTime')}
-    renderInput={() =>
-      createRawSnippet(() => ({
-        render: () => {
-          return `<input id="otp" name="otp" autocomplete="one-time-code" autofocus />`;
-        },
-      }))}
+    renderInput={() => input}
     error={messagesPerField.existsError('totp') ? error : undefined}
   />
   <LoginButton type="submit"></LoginButton>

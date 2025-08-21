@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { createRawSnippet } from 'svelte';
   import { assert } from 'tsafe/assert';
   import { clsx } from '../../../@keycloakify/login-ui-svelte/tools/clsx';
   import { useReducer } from '../../../@keycloakify/login-ui-svelte/tools/useReducer';
@@ -56,20 +55,20 @@
     renderAfterField={afterField}
   />
   {#if kcContext.termsAcceptanceRequired}
+    {#snippet input(inputProps: { type: 'checkbox'; id: string; class: string; 'aria-invalid': 'true' | undefined })}
+      <input
+        id={inputProps.id}
+        class={inputProps.class}
+        type={inputProps.type}
+        aria-invalid={inputProps['aria-invalid']}
+        checked={$areTermsAccepted}
+        name="termsAccepted"
+        onchange={(e) => setAreTermsAccepted((e.target as HTMLInputElement).checked)}
+      />
+    {/snippet}
     <TermsAcceptance
       hasError={!$areTermsAccepted && kcContext.messagesPerField.existsError('termsAccepted')}
-      renderInput={(inputProps) =>
-        createRawSnippet(() => ({
-          render: () => `<input class="${inputProps.class}"/>`,
-          setup: (element) => {
-            (element as HTMLInputElement).id = inputProps.id;
-            (element as HTMLInputElement).ariaInvalid = inputProps['aria-invalid'] ?? null;
-            (element as HTMLInputElement).type = inputProps.type;
-            (element as HTMLInputElement).checked = $areTermsAccepted;
-            (element as HTMLInputElement).name = 'termsAccepted';
-            (element as HTMLInputElement).onchange = (e) => setAreTermsAccepted((e.target as HTMLInputElement).checked);
-          },
-        }))}
+      renderInput={() => input}
     />
   {/if}
 

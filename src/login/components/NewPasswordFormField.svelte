@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { createRawSnippet } from 'svelte';
   import { useNewPassword, type ParamsOfGetNewPasswordApi } from '../../@keycloakify/login-ui-svelte/useNewPassword';
   import { useI18n } from '../i18n';
   import { useKcContext } from '../KcContext.gen';
@@ -63,6 +62,43 @@
 </script>
 
 {#each formFieldStates as { attribute, displayableErrors, value } (attribute)}
+  {#snippet input(inputProps: { id: string; type: 'text' | 'password'; 'aria-invalid': 'true' | undefined })}
+    <input
+      name={attribute.name}
+      autocomplete="new-password"
+      {value}
+      autofocus={((): boolean => {
+        switch (usecase.pageId) {
+          case 'register.ftl':
+            return false;
+          case 'login-update-password.ftl':
+            return true;
+        }
+      })()}
+      id={inputProps.id}
+      aria-invalid={inputProps['aria-invalid']}
+      type={inputProps.type}
+      onchange={(event) =>
+        dispatchFormAction('formAction', {
+          action: 'update',
+          name: attribute.name,
+          value: (event.target as HTMLInputElement).value,
+        })}
+      onblur={() =>
+        dispatchFormAction('formAction', {
+          action: 'focus lost',
+          name: attribute.name,
+        })}
+    />
+  {/snippet}
+  {#snippet error()}
+    {#each displayableErrors as { errorMessage }, i (i)}
+      {@render errorMessage()}
+      {#if displayableErrors.length - 1 !== i}
+        <br />
+      {/if}
+    {/each}
+  {/snippet}
   <Password
     style={attribute.annotations.inputType === 'hidden' ? `display: none` : undefined}
     required
@@ -78,49 +114,7 @@
           return msg('');
       }
     })()}
-    error={displayableErrors?.length
-      ? createRawSnippet(() => ({
-          render: () => {
-            return displayableErrors
-              .map(
-                ({ errorMessageStr }, i) =>
-                  `${errorMessageStr}${displayableErrors.length - 1 !== i ? '<br />' : undefined}`,
-              )
-              .join('');
-          },
-        }))
-      : undefined}
-    renderInput={(inputProps) =>
-      createRawSnippet(() => ({
-        render: () => `<input
-                            name="${attribute.name}"
-                            autocomplete="new-password"
-                            value="${value}"
-                            autofocus="${((): boolean => {
-                              switch (usecase.pageId) {
-                                case 'register.ftl':
-                                  return false;
-                                case 'login-update-password.ftl':
-                                  return true;
-                              }
-                            })()}"
-                        />`,
-        setup: (element: Element) => {
-          (element as HTMLInputElement).id = inputProps.id;
-          (element as HTMLInputElement).ariaInvalid = inputProps['aria-invalid'] ?? null;
-          (element as HTMLInputElement).type = inputProps.type;
-          (element as HTMLInputElement).onchange = (event) =>
-            dispatchFormAction('formAction', {
-              action: 'update',
-              name: attribute.name,
-              value: (event.target as HTMLInputElement).value,
-            });
-          (element as HTMLInputElement).onblur = () =>
-            dispatchFormAction('formAction', {
-              action: 'focus lost',
-              name: attribute.name,
-            });
-        },
-      }))}
+    error={displayableErrors?.length ? error : undefined}
+    renderInput={() => input}
   />
 {/each}
