@@ -8,7 +8,8 @@ export type KcContext =
   | import('./pages/delete-credential/KcContext').KcContext
   | import('./pages/link-idp-action/KcContext').KcContext
   | import('./pages/login-config-totp/KcContext').KcContext
-  | import('./pages/login-oauth-grant/KcContext').KcContext;
+  | import('./pages/login-oauth-grant/KcContext').KcContext
+  | import('./pages/login-otp/KcContext').KcContext;
 
 const KC_CONTEXT_KEY = Symbol('kcContext');
 
