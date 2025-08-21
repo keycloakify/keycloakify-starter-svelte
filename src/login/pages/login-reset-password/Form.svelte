@@ -44,7 +44,7 @@
     {kcSanitize(messagesPerField.get('username'))}
   {/snippet}
   <Input
-    renderInput={() => input}
+    renderInput={input}
     {label}
     error={messagesPerField.existsError('username') ? error : undefined}
   />

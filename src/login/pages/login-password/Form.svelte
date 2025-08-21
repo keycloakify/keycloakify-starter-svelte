@@ -43,7 +43,7 @@
       <Password
         forgotPassword={realm.resetPasswordAllowed ? forgotPassword : undefined}
         label={msg('password')}
-        renderInput={() => input}
+        renderInput={input}
         error={messagesPerField.existsError('password') ? error : undefined}
       ></Password>
 

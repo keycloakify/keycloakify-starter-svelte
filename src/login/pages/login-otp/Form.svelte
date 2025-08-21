@@ -82,7 +82,7 @@
   {/snippet}
   <Input
     label={msg('loginOtpOneTime')}
-    renderInput={() => input}
+    renderInput={input}
     error={messagesPerField.existsError('totp') ? error : undefined}
   />
   <LoginButton type="submit"></LoginButton>

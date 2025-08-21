@@ -6,12 +6,7 @@
 
   type Props = {
     hasError: boolean;
-    renderInput: (inputProps: {
-      type: 'checkbox';
-      id: string;
-      class: string;
-      'aria-invalid': 'true' | undefined;
-    }) => Snippet<
+    renderInput: Snippet<
       [
         {
           type: 'checkbox';
@@ -43,11 +38,6 @@
 <div class="form-group">
   <div class={kcClsx('kcLabelWrapperClass')}>
     {@render renderInput({
-      type: 'checkbox',
-      id: inputId,
-      class: kcClsx('kcCheckboxInputClass'),
-      'aria-invalid': hasError ? 'true' : undefined,
-    })({
       type: 'checkbox',
       id: inputId,
       class: kcClsx('kcCheckboxInputClass'),

@@ -15,7 +15,7 @@
   const { msg } = useI18n();
   const { kcClsx } = useKcClsx();
 
-  const { url, messagesPerField, isAppInitiatedAction } = kcContext;
+  const { url, isAppInitiatedAction } = kcContext;
 
   const [areAllNewPasswordChecksPassed, setAreAllNewPasswordChecksPassed] = useState(false);
 </script>

@@ -17,11 +17,7 @@
     rememberMe?: Snippet;
     forgotPassword?: Snippet;
 
-    renderInput: (inputProps: {
-      id: string;
-      type: 'text' | 'password';
-      'aria-invalid': 'true' | undefined;
-    }) => Snippet<[{ id: string; type: 'text' | 'password'; 'aria-invalid': 'true' | undefined }]>;
+    renderInput: Snippet<[{ id: string; type: 'text' | 'password'; 'aria-invalid': 'true' | undefined }]>;
   };
   const id = $props.id();
   const { className, style, label, required = false, error, rememberMe, forgotPassword, renderInput }: Props = $props();
@@ -46,10 +42,6 @@
     <div class={kcClsx('kcInputGroupItemClass', 'kcFill')}>
       <span class={kcClsx('kcInputClass', !!error && 'kcError')}>
         {@render renderInput({
-          id: inputId,
-          type: $isPasswordRevealed ? 'text' : 'password',
-          'aria-invalid': error ? 'true' : undefined,
-        })({
           id: inputId,
           type: $isPasswordRevealed ? 'text' : 'password',
           'aria-invalid': error ? 'true' : undefined,
