@@ -10,6 +10,12 @@ import { kcContextMock as kcContextMock_link_idp_action } from '../pages/link-id
 import { kcContextMock as kcContextMock_login_config_totp } from '../pages/login-config-totp/KcContext';
 import { kcContextMock as kcContextMock_login_oauth_grant } from '../pages/login-oauth-grant/KcContext';
 import { kcContextMock as kcContextMock_login_otp } from '../pages/login-otp/KcContext';
+import { kcContextMock as kcContextMock_login_password } from '../pages/login-password/KcContext';
+import { kcContextMock as kcContextMock_login_recovery_authn_code_config } from '../pages/login-recovery-authn-code-config/KcContext';
+import { kcContextMock as kcContextMock_login_recovery_authn_code_input } from '../pages/login-recovery-authn-code-input/KcContext';
+import { kcContextMock as kcContextMock_login_reset_password } from '../pages/login-reset-password/KcContext';
+import { kcContextMock as kcContextMock_login_update_password } from '../pages/login-update-password/KcContext';
+import { kcContextMock as kcContextMock_login_username } from '../pages/login-username/KcContext';
 import { kcContextMock as kcContextMock_login } from '../pages/login/KcContext';
 import { kcContextMock as kcContextMock_register } from '../pages/register/KcContext';
 
@@ -40,6 +46,18 @@ export function getKcContextMock<PageId extends KcContext['pageId']>(params: {
           return kcContextMock_login_oauth_grant;
         case 'login-otp.ftl':
           return kcContextMock_login_otp;
+        case 'login-password.ftl':
+          return kcContextMock_login_password;
+        case 'login-recovery-authn-code-config.ftl':
+          return kcContextMock_login_recovery_authn_code_config;
+        case 'login-recovery-authn-code-input.ftl':
+          return kcContextMock_login_recovery_authn_code_input;
+        case 'login-reset-password.ftl':
+          return kcContextMock_login_reset_password;
+        case 'login-update-password.ftl':
+          return kcContextMock_login_update_password;
+        case 'login-username.ftl':
+          return kcContextMock_login_username;
       }
     })(),
   );

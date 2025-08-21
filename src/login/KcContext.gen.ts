@@ -9,7 +9,13 @@ export type KcContext =
   | import('./pages/link-idp-action/KcContext').KcContext
   | import('./pages/login-config-totp/KcContext').KcContext
   | import('./pages/login-oauth-grant/KcContext').KcContext
-  | import('./pages/login-otp/KcContext').KcContext;
+  | import('./pages/login-otp/KcContext').KcContext
+  | import('./pages/login-password/KcContext').KcContext
+  | import('./pages/login-recovery-authn-code-config/KcContext').KcContext
+  | import('./pages/login-recovery-authn-code-input/KcContext').KcContext
+  | import('./pages/login-reset-password/KcContext').KcContext
+  | import('./pages/login-update-password/KcContext').KcContext
+  | import('./pages/login-username/KcContext').KcContext;
 
 const KC_CONTEXT_KEY = Symbol('kcContext');
 
