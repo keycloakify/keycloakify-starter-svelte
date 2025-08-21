@@ -9,11 +9,7 @@
     label?: Snippet;
     required?: boolean;
     error?: Snippet;
-    renderInput: (inputProps: {
-      type: 'text';
-      id: string;
-      'aria-invalid': 'true' | undefined;
-    }) => Snippet<[{ type: 'text'; id: string; 'aria-invalid': 'true' | undefined }]>;
+    renderInput: Snippet<[{ type: 'text'; id: string; 'aria-invalid': 'true' | undefined }]>;
   };
   const id = $props.id();
   const {
@@ -39,10 +35,6 @@
 >
   <span class={kcClsx('kcInputClass', !!error && 'kcError')}>
     {@render renderInput({
-      type: 'text',
-      id: inputId,
-      'aria-invalid': error ? 'true' : undefined,
-    })({
       type: 'text',
       id: inputId,
       'aria-invalid': error ? 'true' : undefined,

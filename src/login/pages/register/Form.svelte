@@ -68,7 +68,7 @@
     {/snippet}
     <TermsAcceptance
       hasError={!$areTermsAccepted && kcContext.messagesPerField.existsError('termsAccepted')}
-      renderInput={() => input}
+      renderInput={input}
     />
   {/if}
 

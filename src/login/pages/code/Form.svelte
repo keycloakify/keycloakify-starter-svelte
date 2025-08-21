@@ -27,7 +27,7 @@
     {/snippet}
     <Input
       label={undefined}
-      renderInput={() => input}
+      renderInput={input}
     />
   {:else if code.error}
     <p id="error">{kcSanitize(code.error)}</p>

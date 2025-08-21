@@ -118,6 +118,6 @@
       }
     })()}
     error={displayableErrors?.length ? error : undefined}
-    renderInput={() => input}
+    renderInput={input}
   />
 {/each}

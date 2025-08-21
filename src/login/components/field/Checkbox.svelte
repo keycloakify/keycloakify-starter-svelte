@@ -8,7 +8,7 @@
     className?: string;
     label: Snippet;
     required?: boolean;
-    renderInput: (inputProps: { className: string; type: 'checkbox'; id: string }) => Snippet;
+    renderInput: Snippet<[{ className: string; type: 'checkbox'; id: string }]>;
   };
   const { className, label, required = false, renderInput }: Props = $props();
 
@@ -26,7 +26,7 @@
       className: kcClsx('kcCheckboxInputClass'),
       type: 'checkbox',
       id: inputId,
-    })()}
+    })}
     <span class={kcClsx('kcCheckboxLabelClass')}>{@render label()}</span>
     {#if required}
       <span
