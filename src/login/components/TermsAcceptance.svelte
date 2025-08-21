@@ -11,7 +11,16 @@
       id: string;
       class: string;
       'aria-invalid': 'true' | undefined;
-    }) => Snippet;
+    }) => Snippet<
+      [
+        {
+          type: 'checkbox';
+          id: string;
+          class: string;
+          'aria-invalid': 'true' | undefined;
+        },
+      ]
+    >;
   };
   const id = $props.id();
   const { hasError, renderInput }: Props = $props();
@@ -38,7 +47,12 @@
       id: inputId,
       class: kcClsx('kcCheckboxInputClass'),
       'aria-invalid': hasError ? 'true' : undefined,
-    })()}
+    })({
+      type: 'checkbox',
+      id: inputId,
+      class: kcClsx('kcCheckboxInputClass'),
+      'aria-invalid': hasError ? 'true' : undefined,
+    })}
     <input
       type="checkbox"
       id={inputId}
