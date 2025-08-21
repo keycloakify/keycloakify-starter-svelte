@@ -26,6 +26,18 @@
           return import('./login-oauth-grant');
         case 'login-otp.ftl':
           return import('./login-otp');
+        case 'login-password.ftl':
+          return import('./login-password');
+        case 'login-recovery-authn-code-config.ftl':
+          return import('./login-recovery-authn-code-config');
+        case 'login-recovery-authn-code-input.ftl':
+          return import('./login-recovery-authn-code-input');
+        case 'login-reset-password.ftl':
+          return import('./login-reset-password');
+        case 'login-update-password.ftl':
+          return import('./login-update-password');
+        case 'login-username.ftl':
+          return import('./login-username');
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       assert<Equals<typeof kcContext, never>>;
