@@ -26,7 +26,7 @@
       type={inputProps.type}
       aria-invalid={inputProps['aria-invalid']}
       value={auth?.attemptedUsername}
-      id="username"
+      id={inputProps.id}
       name="username"
       autofocus
     />

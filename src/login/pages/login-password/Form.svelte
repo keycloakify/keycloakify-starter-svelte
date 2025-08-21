@@ -31,7 +31,7 @@
         <input
           type={inputProps.type}
           aria-invalid={inputProps['aria-invalid']}
-          id="password"
+          id={inputProps.id}
           name="password"
           autofocus
           autocomplete="current-password"

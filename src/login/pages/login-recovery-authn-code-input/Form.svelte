@@ -26,7 +26,7 @@
     <input
       type={inputProps.type}
       aria-invalid={inputProps['aria-invalid']}
-      id="recoveryCodeInput"
+      id={inputProps.id}
       name="recoveryCodeInput"
       autofocus
     />
@@ -35,7 +35,7 @@
     {kcSanitize(messagesPerField.get('recoveryCodeInput'))}
   {/snippet}
   <Input
-    renderInput={() => input}
+    renderInput={input}
     label={msg('auth-recovery-code-prompt', `${recoveryAuthnCodesInputBean.codeNumber}`)}
     error={messagesPerField.existsError('recoveryCodeInput') ? error : undefined}
   />

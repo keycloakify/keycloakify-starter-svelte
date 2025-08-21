@@ -72,7 +72,7 @@
   {/snippet}
   {#snippet input(inputProps: { type: 'text'; id: string; 'aria-invalid': 'true' | undefined })}
     <input
-      id="otp"
+      id={inputProps.id}
       name="otp"
       autocomplete="one-time-code"
       type={inputProps.type}
