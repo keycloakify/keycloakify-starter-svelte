@@ -18,7 +18,7 @@
     <p>{@render msg('copyCodeInstruction')()}</p>
     {#snippet input(inputProps: { type: 'text'; id: string; 'aria-invalid': 'true' | undefined })}
       <input
-        id="code"
+        id={inputProps.id}
         name="code"
         value={code.code}
         type={inputProps.type}
