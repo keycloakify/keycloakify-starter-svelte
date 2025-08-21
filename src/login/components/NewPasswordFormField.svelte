@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { useNewPassword, type ParamsOfGetNewPasswordApi } from '../../@keycloakify/login-ui-svelte/useNewPassword';
   import { useI18n } from '../i18n';
   import { useKcContext } from '../KcContext.gen';
@@ -54,14 +55,16 @@
     makeConfirmationFieldHiddenAndAutoFilled: !testUserPatienceWithConfirmationLikeIts1998,
     userProfileApi: usecase.pageId === 'register.ftl' ? usecase.userProfileApi : undefined,
   });
-  const { areAllChecksPassed, formFieldStates } = $formState;
 
-  $effect(() => {
-    onAreAllCheckPassedValueChange(areAllChecksPassed);
+  onMount(() => {
+    const unsubscribe = formState.subscribe(({ areAllChecksPassed }) => {
+      onAreAllCheckPassedValueChange(areAllChecksPassed);
+    });
+    return () => unsubscribe();
   });
 </script>
 
-{#each formFieldStates as { attribute, displayableErrors, value } (attribute)}
+{#each $formState.formFieldStates as { attribute, displayableErrors, value } (attribute)}
   {#snippet input(inputProps: { id: string; type: 'text' | 'password'; 'aria-invalid': 'true' | undefined })}
     <input
       name={attribute.name}
@@ -111,7 +114,7 @@
         case 'password-confirm':
           return msg('passwordConfirm');
         default:
-          return msg('');
+          return msg('password');
       }
     })()}
     error={displayableErrors?.length ? error : undefined}
