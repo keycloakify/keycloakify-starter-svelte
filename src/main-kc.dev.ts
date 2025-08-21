@@ -1,7 +1,6 @@
 import { mount } from 'svelte';
 import KcPage from './kc.gen.svelte';
 import { getKcContextMock } from './login/mocks/getKcContextMock.gen';
-import Spinner from './Spinner.svelte';
 
 const kcContext = getKcContextMock({
   pageId: 'login-config-totp.ftl',
@@ -10,7 +9,7 @@ const kcContext = getKcContextMock({
 
 const app = mount(KcPage, {
   target: document.getElementById('kc-root')!,
-  props: { kcContext: kcContext, Fallback: Spinner },
+  props: { kcContext: kcContext },
 });
 
 export default app;
