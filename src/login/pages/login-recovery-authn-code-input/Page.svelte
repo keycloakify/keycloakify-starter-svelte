@@ -6,7 +6,7 @@
   import Form from './Form.svelte';
 
   const { kcContext } = useKcContext();
-  assert(kcContext.pageId === 'login.ftl');
+  assert(kcContext.pageId === 'login-recovery-authn-code-input.ftl');
 
   const { msg } = useI18n();
 </script>
@@ -16,8 +16,9 @@
 {/snippet}
 
 <Template
+  displayMessage={!kcContext.messagesPerField.existsError('recoveryCodeInput')}
   slots={{
-    header: msg('doLogIn'),
+    header: msg('auth-recovery-code-header'),
     form: form,
   }}
 />
