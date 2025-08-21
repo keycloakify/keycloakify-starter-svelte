@@ -1,8 +1,8 @@
 // @ts-check
-import { formatNumber } from "./common.js";
-import { registerElementAnnotatedBy } from "./userProfile.js";
+import { formatNumber } from './common.js';
+import { registerElementAnnotatedBy } from './userProfile.js';
 
-const KC_NUMBER_FORMAT = "kcNumberFormat";
+const KC_NUMBER_FORMAT = 'kcNumberFormat';
 
 registerElementAnnotatedBy({
   name: KC_NUMBER_FORMAT,
@@ -12,10 +12,10 @@ registerElementAnnotatedBy({
       element.value = formatNumber(element.value, format);
     };
 
-    element.addEventListener("keyup", formatValue);
+    element.addEventListener('keyup', formatValue);
 
     formatValue();
 
-    return () => element.removeEventListener("keyup", formatValue);
+    return () => element.removeEventListener('keyup', formatValue);
   },
 });
