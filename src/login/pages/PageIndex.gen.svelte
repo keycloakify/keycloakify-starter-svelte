@@ -22,6 +22,8 @@
           return import('./link-idp-action');
         case 'login-config-totp.ftl':
           return import('./login-config-totp');
+        case 'login-oauth-grant.ftl':
+          return import('./login-oauth-grant');
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       assert<Equals<typeof kcContext, never>>;
