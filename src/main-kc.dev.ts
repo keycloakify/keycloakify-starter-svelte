@@ -3,7 +3,7 @@ import KcPage from './kc.gen.svelte';
 import { getKcContextMock } from './login/mocks/getKcContextMock.gen';
 
 const kcContext = getKcContextMock({
-  pageId: 'login-oauth-grant.ftl',
+  pageId: 'login-otp.ftl',
   overrides: {},
 });
 

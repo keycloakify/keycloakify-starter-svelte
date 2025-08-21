@@ -9,6 +9,7 @@ import { kcContextMock as kcContextMock_delete_credential } from '../pages/delet
 import { kcContextMock as kcContextMock_link_idp_action } from '../pages/link-idp-action/KcContext';
 import { kcContextMock as kcContextMock_login_config_totp } from '../pages/login-config-totp/KcContext';
 import { kcContextMock as kcContextMock_login_oauth_grant } from '../pages/login-oauth-grant/KcContext';
+import { kcContextMock as kcContextMock_login_otp } from '../pages/login-otp/KcContext';
 import { kcContextMock as kcContextMock_login } from '../pages/login/KcContext';
 import { kcContextMock as kcContextMock_register } from '../pages/register/KcContext';
 
@@ -37,6 +38,8 @@ export function getKcContextMock<PageId extends KcContext['pageId']>(params: {
           return kcContextMock_login_config_totp;
         case 'login-oauth-grant.ftl':
           return kcContextMock_login_oauth_grant;
+        case 'login-otp.ftl':
+          return kcContextMock_login_otp;
       }
     })(),
   );
