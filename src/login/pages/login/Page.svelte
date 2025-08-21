@@ -1,6 +1,6 @@
 <script lang="ts">
   import { assert } from 'tsafe/assert';
-  import { useI18n } from '../../../@keycloakify/login-ui-svelte/i18n/useI18n';
+  import { useI18n } from '../../i18n';
   import { Template } from '../../components/Template';
   import { useKcContext } from '../../KcContext.gen';
   import Form from './Form.svelte';
@@ -17,7 +17,7 @@
 
 <Template
   slots={{
-    header: msg('doLogin'),
+    header: msg('doLogIn'),
     form: form,
   }}
 />
