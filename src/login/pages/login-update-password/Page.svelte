@@ -6,7 +6,7 @@
   import Form from './Form.svelte';
 
   const { kcContext } = useKcContext();
-  assert(kcContext.pageId === 'login.ftl');
+  assert(kcContext.pageId === 'login-update-password.ftl');
 
   const { msg } = useI18n();
 </script>
@@ -16,8 +16,9 @@
 {/snippet}
 
 <Template
+  displayMessage={!kcContext.messagesPerField.existsError('password', 'password-confirm')}
   slots={{
-    header: msg('doLogIn'),
+    header: msg('updatePasswordTitle'),
     form: form,
   }}
 />
