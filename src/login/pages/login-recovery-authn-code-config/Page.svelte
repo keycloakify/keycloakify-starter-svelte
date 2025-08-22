@@ -1,12 +1,12 @@
 <script lang="ts">
   import { assert } from 'tsafe/assert';
-  import { useI18n } from '../../../@keycloakify/login-ui-svelte/i18n/useI18n';
   import { Template } from '../../components/Template';
+  import { useI18n } from '../../i18n';
   import { useKcContext } from '../../KcContext.gen';
   import Form from './Form.svelte';
 
   const { kcContext } = useKcContext();
-  assert(kcContext.pageId === 'login.ftl');
+  assert(kcContext.pageId === 'login-recovery-authn-code-config.ftl');
 
   const { msg } = useI18n();
 </script>
@@ -17,7 +17,7 @@
 
 <Template
   slots={{
-    header: msg('doLogin'),
+    header: msg('recovery-code-config-header'),
     form: form,
   }}
 />
