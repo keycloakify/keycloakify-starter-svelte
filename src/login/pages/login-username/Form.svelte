@@ -80,4 +80,6 @@
     {/if}
   </div>
 </div>
-<ConditionalUiData></ConditionalUiData>
+{#if enableWebAuthnConditionalUI}
+  <ConditionalUiData></ConditionalUiData>
+{/if}
