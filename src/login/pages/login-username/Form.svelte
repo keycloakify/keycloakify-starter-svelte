@@ -66,6 +66,7 @@
                 id={inputProps.id}
                 name="rememberMe"
                 value={login.rememberMe}
+                defaultChecked={!!login.rememberMe}
               />
             {/snippet}
             <Checkbox
