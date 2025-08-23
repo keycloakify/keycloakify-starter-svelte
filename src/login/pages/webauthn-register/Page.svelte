@@ -1,5 +1,6 @@
 <script lang="ts">
   import { assert } from 'tsafe/assert';
+  import { useKcClsx } from '../../../@keycloakify/login-ui-svelte/useKcClsx';
   import { Template } from '../../components/Template';
   import { useI18n } from '../../i18n';
   import { useKcContext } from '../../KcContext.gen';
@@ -8,17 +9,22 @@
   const { kcContext } = useKcContext();
   assert(kcContext.pageId === 'webauthn-register.ftl');
 
-  const { msg, advancedMsg } = useI18n();
+  const { msg } = useI18n();
+  const { kcClsx } = useKcClsx();
 </script>
+
+{#snippet header()}
+  <span class={kcClsx('kcWebAuthnKeyIcon')}></span>
+  {@render msg('webauthn-registration-title')()}
+{/snippet}
 
 {#snippet form()}
   <Form />
 {/snippet}
 
 <Template
-  displayRequiredFields
   slots={{
-    header: msg('registerTitle'),
+    header: header,
     form: form,
   }}
 />
