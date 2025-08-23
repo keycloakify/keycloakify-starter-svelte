@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import { readable } from 'svelte/store';
   import { assert } from 'tsafe/assert';
   import KcClsxProvider from '../@keycloakify/login-ui-svelte/KcClsxProvider.svelte';
   import { useExclusiveAppInstanceEffect } from '../@keycloakify/login-ui-svelte/tools/useExclusiveAppInstanceEffect';
@@ -10,7 +11,7 @@
   const { doUseDefaultCss, classes, loadCustomStylesheet, Provider } = useStyleLevelCustomization();
   useExclusiveAppInstanceEffect({
     effectId: 'loadCustomStylesheet',
-    isEnabled: loadCustomStylesheet !== undefined,
+    isEnabled: readable(loadCustomStylesheet !== undefined),
     effect: () => {
       assert(loadCustomStylesheet !== undefined);
       loadCustomStylesheet();
