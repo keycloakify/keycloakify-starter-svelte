@@ -6,9 +6,9 @@
   import Form from './Form.svelte';
 
   const { kcContext } = useKcContext();
-  assert(kcContext.pageId === 'select-authenticator.ftl');
+  assert(kcContext.pageId === 'terms.ftl');
 
-  const { msg, advancedMsg } = useI18n();
+  const { msg } = useI18n();
 </script>
 
 {#snippet form()}
@@ -16,9 +16,8 @@
 {/snippet}
 
 <Template
-  displayRequiredFields
   slots={{
-    header: msg('registerTitle'),
+    header: msg('termsTitle'),
     form: form,
   }}
 />
