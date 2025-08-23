@@ -18,6 +18,11 @@ import { kcContextMock as kcContextMock_login_update_password } from '../pages/l
 import { kcContextMock as kcContextMock_login_username } from '../pages/login-username/KcContext';
 import { kcContextMock as kcContextMock_login } from '../pages/login/KcContext';
 import { kcContextMock as kcContextMock_register } from '../pages/register/KcContext';
+import { kcContextMock as kcContextMock_select_authenticator } from '../pages/select-authenticator/KcContext';
+import { kcContextMock as kcContextMock_terms } from '../pages/terms/KcContext';
+import { kcContextMock as kcContextMock_webauthn_authenticate } from '../pages/webauthn-authenticate/KcContext';
+import { kcContextMock as kcContextMock_webauthn_error } from '../pages/webauthn-error/KcContext';
+import { kcContextMock as kcContextMock_webauthn_register } from '../pages/webauthn-register/KcContext';
 
 export function getKcContextMock<PageId extends KcContext['pageId']>(params: {
   pageId: PageId;
@@ -58,6 +63,16 @@ export function getKcContextMock<PageId extends KcContext['pageId']>(params: {
           return kcContextMock_login_update_password;
         case 'login-username.ftl':
           return kcContextMock_login_username;
+        case 'select-authenticator.ftl':
+          return kcContextMock_select_authenticator;
+        case 'terms.ftl':
+          return kcContextMock_terms;
+        case 'webauthn-authenticate.ftl':
+          return kcContextMock_webauthn_authenticate;
+        case 'webauthn-register.ftl':
+          return kcContextMock_webauthn_register;
+        case 'webauthn-error.ftl':
+          return kcContextMock_webauthn_error;
       }
     })(),
   );
