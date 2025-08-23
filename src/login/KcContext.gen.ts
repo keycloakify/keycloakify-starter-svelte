@@ -15,7 +15,12 @@ export type KcContext =
   | import('./pages/login-recovery-authn-code-input/KcContext').KcContext
   | import('./pages/login-reset-password/KcContext').KcContext
   | import('./pages/login-update-password/KcContext').KcContext
-  | import('./pages/login-username/KcContext').KcContext;
+  | import('./pages/login-username/KcContext').KcContext
+  | import('./pages/select-authenticator/KcContext').KcContext
+  | import('./pages/terms/KcContext').KcContext
+  | import('./pages/webauthn-authenticate/KcContext').KcContext
+  | import('./pages/webauthn-error/KcContext').KcContext
+  | import('./pages/webauthn-register/KcContext').KcContext;
 
 const KC_CONTEXT_KEY = Symbol('kcContext');
 

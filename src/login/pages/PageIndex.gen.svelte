@@ -38,6 +38,16 @@
           return import('./login-update-password');
         case 'login-username.ftl':
           return import('./login-username');
+        case 'select-authenticator.ftl':
+          return import('./select-authenticator');
+        case 'terms.ftl':
+          return import('./terms');
+        case 'webauthn-authenticate.ftl':
+          return import('./webauthn-authenticate');
+        case 'webauthn-register.ftl':
+          return import('./webauthn-register');
+        case 'webauthn-error.ftl':
+          return import('./webauthn-error');
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       assert<Equals<typeof kcContext, never>>;
