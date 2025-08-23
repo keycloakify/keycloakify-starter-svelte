@@ -59,7 +59,7 @@
           type="submit"
           id="cancelWebAuthnAIA"
           name="cancel-aia"
-          class={kcClsx('kcButtonPrimaryClass', 'kcButtonBlockClass')}
+          class={kcClsx('kcButtonSecondaryClass', 'kcButtonBlockClass')}
         >
           {@render msg('doCancel')()}
         </Button>
