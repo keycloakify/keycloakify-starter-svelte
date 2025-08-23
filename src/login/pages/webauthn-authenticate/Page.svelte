@@ -25,7 +25,6 @@
 {/snippet}
 
 <Template
-  displayRequiredFields
   slots={{
     header: msg('webauthn-login-title'),
     form: form,

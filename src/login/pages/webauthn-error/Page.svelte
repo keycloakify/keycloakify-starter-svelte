@@ -8,7 +8,7 @@
   const { kcContext } = useKcContext();
   assert(kcContext.pageId === 'webauthn-error.ftl');
 
-  const { msg, advancedMsg } = useI18n();
+  const { msg } = useI18n();
 </script>
 
 {#snippet form()}
@@ -16,9 +16,8 @@
 {/snippet}
 
 <Template
-  displayRequiredFields
   slots={{
-    header: msg('registerTitle'),
+    header: msg('webauthn-error-title'),
     form: form,
   }}
 />
