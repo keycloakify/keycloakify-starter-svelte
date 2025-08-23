@@ -1,3 +1,4 @@
+import { derived, readable, type Readable } from 'svelte/store';
 import { useOnFirstMount } from './useOnFirstMount';
 
 // NOTE: This context has to be shared in storybook between the login
@@ -20,15 +21,19 @@ const globalContext = window[GLOBAL_CONTEXT_KEY];
 
 const { alreadyRanEffectId } = globalContext;
 
-export function useExclusiveAppInstanceEffect(params: { isEnabled?: boolean; effectId: string; effect: () => void }) {
-  const { effectId, effect, isEnabled = true } = params;
+export function useExclusiveAppInstanceEffect(params: {
+  isEnabled?: Readable<boolean>;
+  effectId: string;
+  effect: () => void;
+}) {
+  const { effectId, effect, isEnabled = readable(true) } = params;
 
   useOnFirstMount({
     // NOTE: Why `|| alreadyRanEffectId.has(effectId)`?
     // Because if we had already an effect with the same id it means that an effect has been ran
     // and it must be cleared, we might have some stylesheet present on the document for example.
     // it happen when one Template need to load CSS or Scripts and the other does not.
-    isEnabled: isEnabled || alreadyRanEffectId.has(effectId),
+    isEnabled: derived(isEnabled, (enabled) => enabled || alreadyRanEffectId.has(effectId)),
     effect: () => {
       const isAlreadyRan = alreadyRanEffectId.has(effectId);
 

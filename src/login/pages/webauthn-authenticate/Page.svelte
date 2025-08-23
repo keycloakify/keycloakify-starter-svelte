@@ -8,17 +8,27 @@
   const { kcContext } = useKcContext();
   assert(kcContext.pageId === 'webauthn-authenticate.ftl');
 
-  const { msg, advancedMsg } = useI18n();
+  const { msg } = useI18n();
 </script>
 
 {#snippet form()}
   <Form />
 {/snippet}
 
+{#snippet info()}
+  <div id="kc-registration">
+    <span
+      >{@render msg('noAccount')()}
+      <a href={kcContext.url.registrationUrl}>{@render msg('doRegister')()}</a></span
+    >
+  </div>
+{/snippet}
+
 <Template
   displayRequiredFields
   slots={{
-    header: msg('registerTitle'),
+    header: msg('webauthn-login-title'),
     form: form,
+    info: kcContext.realm.registrationAllowed && !kcContext.registrationDisabled ? info : undefined,
   }}
 />
