@@ -5,13 +5,14 @@ import svelte from 'eslint-plugin-svelte';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import ts from 'typescript-eslint';
+import svelteConfig from './svelte.config.js';
 
 export default ts.config(
   js.configs.recommended,
   ...ts.configs.recommended,
-  ...svelte.configs['flat/recommended'],
+  ...svelte.configs.recommended,
   prettierConfig,
-  ...svelte.configs['flat/prettier'],
+  ...svelte.configs.prettier,
   {
     plugins: { prettier, 'unused-imports': unusedImports },
     rules: {
@@ -27,10 +28,20 @@ export default ts.config(
     },
   },
   {
-    files: ['**/*.svelte'],
+    files: ['**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-namespace': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+    },
+  },
+  {
+    files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
     languageOptions: {
       parserOptions: {
+        projectService: true,
+        extraFileExtensions: ['.svelte'],
         parser: ts.parser,
+        svelteConfig,
       },
     },
     rules: {
@@ -51,6 +62,6 @@ export default ts.config(
     },
   },
   {
-    ignores: ['build/', '.svelte-kit/', 'dist/', 'public/'],
+    ignores: ['build/', '.svelte-kit/', 'dist/', 'stories/', 'CHANGELOG.md'],
   },
 );

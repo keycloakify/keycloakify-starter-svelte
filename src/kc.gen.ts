@@ -17,10 +17,16 @@ export const kcEnvNames: KcEnvName[] = [];
 
 export const kcEnvDefaults: Record<KcEnvName, string> = {};
 
-export type KcContext = import('./login/KcContext').KcContext;
+export type KcContext = import('./login/KcContext.gen').KcContext;
 
 declare global {
   interface Window {
     kcContext?: KcContext;
   }
 }
+// NOTE: This is exported here only because in Webpack environnement it works differently
+export const BASE_URL = import.meta.env.BASE_URL;
+
+// NOTE: This is only exported here because you're supposed to import type from different packages
+// Depending of if you are using Vite, Webpack, ect...
+export type { Meta, StoryObj } from '@storybook/svelte-vite';
