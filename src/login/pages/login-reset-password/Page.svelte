@@ -11,6 +11,8 @@
 
   const { msg } = useI18n();
   const { kcClsx } = useKcClsx();
+
+  const { realm, messagesPerField } = kcContext;
 </script>
 
 {#snippet form()}
@@ -19,7 +21,7 @@
 
 {#snippet info()}
   <span class={kcClsx('kcLoginMainFooterHelperText')}>
-    {#if kcContext.realm.duplicateEmailsAllowed}
+    {#if realm.duplicateEmailsAllowed}
       {@render msg('emailInstructionUsername')()}
     {:else}
       {@render msg('emailInstruction')()}
@@ -28,7 +30,7 @@
 {/snippet}
 
 <Template
-  displayMessage={!kcContext.messagesPerField.existsError('username')}
+  displayMessage={!messagesPerField.existsError('username')}
   slots={{
     header: msg('emailForgotTitle'),
     form: form,

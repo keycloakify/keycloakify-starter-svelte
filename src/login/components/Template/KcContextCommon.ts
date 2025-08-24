@@ -370,7 +370,6 @@ export const kcContextCommonMock: KcContextCommon = {
         type Unexpected = Exclude<Got, Expected>;
 
         assert<Equals<Missing, never>>;
-        // @ts-expect-error: assert
         assert<Equals<Unexpected, never>>;
       }
 
@@ -386,7 +385,7 @@ export const kcContextCommonMock: KcContextCommon = {
   auth: {
     showUsername: false,
     showResetCredentials: false,
-    showTryAnotherWayLink: false,
+    showTryAnotherWayLink: true,
   },
   client: {
     clientId: 'myApp',

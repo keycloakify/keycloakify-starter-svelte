@@ -5,6 +5,7 @@ import svelte from 'eslint-plugin-svelte';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import ts from 'typescript-eslint';
+import svelteConfig from './svelte.config.js';
 
 export default ts.config(
   js.configs.recommended,
@@ -34,10 +35,13 @@ export default ts.config(
     },
   },
   {
-    files: ['**/*.svelte'],
+    files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
     languageOptions: {
       parserOptions: {
+        projectService: true,
+        extraFileExtensions: ['.svelte'],
         parser: ts.parser,
+        svelteConfig,
       },
     },
     rules: {

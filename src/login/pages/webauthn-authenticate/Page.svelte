@@ -9,6 +9,8 @@
   assert(kcContext.pageId === 'webauthn-authenticate.ftl');
 
   const { msg } = useI18n();
+
+  const { realm, registrationDisabled, url } = kcContext;
 </script>
 
 {#snippet form()}
@@ -19,7 +21,7 @@
   <div id="kc-registration">
     <span
       >{@render msg('noAccount')()}
-      <a href={kcContext.url.registrationUrl}>{@render msg('doRegister')()}</a></span
+      <a href={url.registrationUrl}>{@render msg('doRegister')()}</a></span
     >
   </div>
 {/snippet}
@@ -28,6 +30,6 @@
   slots={{
     header: msg('webauthn-login-title'),
     form: form,
-    info: kcContext.realm.registrationAllowed && !kcContext.registrationDisabled ? info : undefined,
+    info: realm.registrationAllowed && !registrationDisabled ? info : undefined,
   }}
 />
