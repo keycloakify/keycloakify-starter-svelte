@@ -6,6 +6,11 @@
   const { kcContext } = useKcContext();
   const { msg } = useI18n();
   const { kcClsx } = useKcClsx();
+
+  let selectTryAnotherWayFormEl: HTMLFormElement;
+  function tryAnotherWay() {
+    selectTryAnotherWayFormEl.requestSubmit();
+  }
 </script>
 
 {#if kcContext.auth?.showTryAnotherWayLink}
@@ -13,7 +18,8 @@
     id="kc-select-try-another-way-form"
     action={kcContext.url.loginAction}
     method="post"
-    novalidate={true}
+    novalidate
+    bind:this={selectTryAnotherWayFormEl}
   >
     <input
       type="hidden"
@@ -22,8 +28,16 @@
     />
     <a
       id="try-another-way"
-      href="javascript:document.forms['kc-select-try-another-way-form'].requestSubmit()"
       class={kcClsx('kcButtonSecondaryClass', 'kcButtonBlockClass', 'kcMarginTopClass')}
+      role="button"
+      tabindex="0"
+      onclick={tryAnotherWay}
+      onkeydown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          tryAnotherWay();
+          e.preventDefault();
+        }
+      }}
     >
       {@render msg('doTryAnotherWay')()}
     </a>
