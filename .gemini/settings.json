@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "mcp-svelte-docs": {
+      "command": "npx",
+      "args": ["-y", "mcp-svelte-docs"]
+    }
+  },
+  "contextFileName": "GEMINI.md",
+  "fileFiltering": {
+    "respectGitIgnore": true,
+    "enableRecursiveFileSearch": true
+  },
+  "autoAccept": false
+}
