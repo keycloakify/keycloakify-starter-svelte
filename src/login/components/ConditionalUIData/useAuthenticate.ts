@@ -47,15 +47,19 @@ export const useAuthenticate = (): ReturnTypeOfUseAuthenticate => {
   });
 
   const authenticate = async () => {
-    const { authenticateByWebAuthn }: { authenticateByWebAuthn: AuthenticateByWebAuthnFn } = await import(
-      /* @vite-ignore */
-      `${BASE_URL}keycloak-theme/login/js/webauthnAuthenticate.js`
-    );
+    try {
+      const { authenticateByWebAuthn }: { authenticateByWebAuthn: AuthenticateByWebAuthnFn } = await import(
+        /* @vite-ignore */
+        `${BASE_URL}keycloak-theme/login/js/webauthnAuthenticate.js`
+      );
 
-    authenticateByWebAuthn({
-      errmsg: msgStr('webauthn-unsupported-browser-text'),
-      ...input,
-    });
+      authenticateByWebAuthn({
+        errmsg: msgStr('webauthn-unsupported-browser-text'),
+        ...input,
+      });
+    } catch (error) {
+      console.error('Failed to load or execute webauthn-authenticate script:', error);
+    }
   };
 
   return { authenticate };

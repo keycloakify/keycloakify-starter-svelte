@@ -24,21 +24,25 @@ export const useAuthenticate = (): ReturnTypeOfUseAuthenticate => {
   const { msgStr } = useI18n();
 
   const authenticate = async () => {
-    const { authenticateByWebAuthn }: { authenticateByWebAuthn: AuthenticateByWebAuthnFn } = await import(
-      /* @vite-ignore */
-      `${BASE_URL}keycloak-theme/login/js/webauthnAuthenticate.js`
-    );
+    try {
+      const { authenticateByWebAuthn }: { authenticateByWebAuthn: AuthenticateByWebAuthnFn } = await import(
+        /* @vite-ignore */
+        `${BASE_URL}keycloak-theme/login/js/webauthnAuthenticate.js`
+      );
 
-    const { isUserIdentified, challenge, userVerification, rpId, createTimeout } = kcContext;
-    const input: AuthenticateByWebAuthnInput = {
-      challenge,
-      createTimeout,
-      errmsg: msgStr('webauthn-unsupported-browser-text'),
-      isUserIdentified: isUserIdentified === 'true',
-      rpId,
-      userVerification,
-    };
-    authenticateByWebAuthn(input);
+      const { isUserIdentified, challenge, userVerification, rpId, createTimeout } = kcContext;
+      const input: AuthenticateByWebAuthnInput = {
+        challenge,
+        createTimeout,
+        errmsg: msgStr('webauthn-unsupported-browser-text'),
+        isUserIdentified: isUserIdentified === 'true',
+        rpId,
+        userVerification,
+      };
+      authenticateByWebAuthn(input);
+    } catch (error) {
+      console.error('Failed to load or execute webauthn-authenticate script:', error);
+    }
   };
 
   return { authenticate };
