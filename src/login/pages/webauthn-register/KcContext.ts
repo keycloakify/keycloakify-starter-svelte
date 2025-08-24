@@ -21,8 +21,8 @@ export type KcContext = KcContextCommon & {
 export const kcContextMock: KcContext = {
   ...kcContextCommonMock,
   pageId: 'webauthn-register.ftl',
-  challenge: 'random-challenge-string',
-  userid: 'user123',
+  challenge: 'cmFuZG9tLWNoYWxsZW5nZS1zdHJpbmc', // must be base64 url encoded for the webauthnRegister script
+  userid: 'dXNlcjEyMw', // must be base64 url encoded for the webauthnRegister script
   username: 'johndoe',
   signatureAlgorithms: ['ES256', 'RS256'],
   rpEntityName: 'Example Corp',
@@ -32,7 +32,7 @@ export const kcContextMock: KcContext = {
   requireResidentKey: 'required',
   userVerificationRequirement: 'preferred',
   createTimeout: 60000,
-  excludeCredentialIds: 'credId123,credId456',
+  excludeCredentialIds: 'Y3JlZElkMTIz,Y3JlZElkNDU2', // must be base64 url encoded for the webauthnRegister script
   isSetRetry: false,
   isAppInitiatedAction: true,
 };
