@@ -1,4 +1,5 @@
 import { onMount } from 'svelte';
+import { useAuthChecker } from './useAuthChecker';
 import { useDefaultCss } from './useDefaultCss';
 import { useDefaultScripts } from './useDefaultScripts';
 import { useInitializeDarkMode } from './useInitializeDarkMode';
@@ -15,6 +16,7 @@ export function useInitializeTemplate() {
   useSetBodyClassName();
   useSetBodyPageIdAttribute();
   useSetBodyId();
+  useAuthChecker();
   const { areAllStyleSheetsLoaded } = useDefaultCss();
   const { insertScriptTags } = useDefaultScripts();
 
