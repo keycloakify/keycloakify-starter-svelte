@@ -4,16 +4,14 @@
   import { useKcClsx } from '../../../@keycloakify/login-ui-svelte/useKcClsx';
   import { useI18n } from '../../i18n';
   import { useKcContext } from '../../KcContext.gen';
-  import { useScript } from './useScript';
+  import { useAuthenticate } from './useAuthenticate';
 
   const { kcContext } = useKcContext();
   assert(kcContext.enableWebAuthnConditionalUI);
 
   const { msg } = useI18n();
 
-  const authButtonId = 'authenticateWebAuthnButton';
-
-  useScript({ authButtonId });
+  const { authenticate } = useAuthenticate();
 
   const { kcClsx } = useKcClsx();
 </script>
@@ -60,6 +58,7 @@
     id="authenticateWebAuthnButton"
     href="#"
     class={kcClsx('kcButtonSecondaryClass', 'kcButtonBlockClass', 'kcMarginTopClass')}
+    onclick={authenticate}
   >
     {@render msg('webauthn-doAuthenticate')()}
   </a>
