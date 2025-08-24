@@ -17,6 +17,8 @@
 
   const [confirmed, toggleConfirmation] = useReducer((state) => !state, false);
 
+  let recoveryCodeListEl: HTMLOListElement;
+
   /* copy recovery codes  */
   async function copyRecoveryCodes() {
     /** replacement for deprecated document.execCommand('copy') */
@@ -41,7 +43,7 @@
   }
 
   function parseRecoveryCodeList() {
-    const recoveryCodes = document.getElementById('kc-recovery-codes-list')!.getElementsByTagName('li');
+    const recoveryCodes = recoveryCodeListEl.getElementsByTagName('li');
     let recoveryCodeList = '';
 
     for (let i = 0; i < recoveryCodes.length; i++) {
@@ -80,7 +82,7 @@ ${msgStr('recovery-codes-download-file-date')} ${formatCurrentDateTime()};`;
 
   /* print recovery codes */
   function buildPrintContent() {
-    const recoveryCodeListHTML = document.getElementById('kc-recovery-codes-list')!.parentElement!.innerHTML;
+    const recoveryCodeListHTML = recoveryCodeListEl.parentElement!.innerHTML;
     const styles = `@page { size: auto;  margin-top: 0; }
 body { width: 480px; }
 div { font-family: monospace }
@@ -144,6 +146,7 @@ p:first-of-type { margin-top: 48px }`;
     <div class={kcClsx('kcPanelMainBodyClass')}>
       <ol
         id="kc-recovery-codes-list"
+        bind:this={recoveryCodeListEl}
         class={kcClsx('kcListClass')}
         role="list"
       >
