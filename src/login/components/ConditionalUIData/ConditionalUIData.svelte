@@ -1,4 +1,5 @@
 <script lang="ts">
+  /* eslint svelte/valid-compile: ["error", { ignoreWarnings: true }] */
   import { assert } from 'tsafe/assert';
   import { useKcClsx } from '../../../@keycloakify/login-ui-svelte/useKcClsx';
   import { useI18n } from '../../i18n';

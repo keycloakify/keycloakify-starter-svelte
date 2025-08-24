@@ -50,7 +50,9 @@
     <li>
       <p>{@render msg('loginTotpManualStep3')()}</p>
       <ul>
-        <li id="kc-totp-type">{@render msg('loginTotpType')()}: {@render msg('loginTotp.' + totp.policy.type)()}</li>
+        <li id="kc-totp-type">
+          {@render msg('loginTotpType')()}: {@render advancedMsg('loginTotp.' + totp.policy.type)()}
+        </li>
         <li id="kc-totp-algorithm">{@render msg('loginTotpAlgorithm')()}: {totp.policy.getAlgorithmKey()}</li>
         <li id="kc-totp-digits">{@render msg('loginTotpDigits')()}: {totp.policy.digits}</li>
         {#if totp.policy.type === 'totp'}

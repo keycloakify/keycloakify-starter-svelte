@@ -20,8 +20,8 @@ export const kcContextMock: KcContext = {
   realm: {
     ...kcContextCommonMock.realm,
     loginWithEmailAllowed: false,
-    duplicateEmailsAllowed: false,
-  } satisfies KcContext['realm'],
+    duplicateEmailsAllowed: true,
+  },
   auth: {},
   url: {
     loginAction: '#',
