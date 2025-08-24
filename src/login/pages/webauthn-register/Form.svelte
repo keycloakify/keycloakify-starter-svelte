@@ -6,7 +6,7 @@
   import ActionGroup from '../../components/buttons/ActionGroup.svelte';
   import Button from '../../components/buttons/Button.svelte';
   import { useI18n } from '../../i18n';
-  import { useScript } from './useScript';
+  import { useRegister } from './useRegister';
 
   const { kcContext } = useKcContext();
   assert(kcContext.pageId === 'webauthn-register.ftl');
@@ -15,9 +15,7 @@
 
   const { url, isSetRetry, isAppInitiatedAction } = kcContext;
 
-  const registerButtonId = 'registerWebAuthn';
-
-  useScript({ registerButtonId });
+  const { register } = useRegister();
 </script>
 
 <div class={kcClsx('kcFormClass')}>
@@ -66,6 +64,7 @@
       type="submit"
       id="registerWebAuthn"
       class={kcClsx('kcButtonPrimaryClass', 'kcButtonBlockClass')}
+      onclick={register}
     >
       {@render msg('doRegisterSecurityKey')()}
     </Button>
