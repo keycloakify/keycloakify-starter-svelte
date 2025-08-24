@@ -61,7 +61,7 @@
   <!-- Action button -->
   <ActionGroup horizontal>
     <Button
-      type="submit"
+      type="button"
       id="registerWebAuthn"
       class={kcClsx('kcButtonPrimaryClass', 'kcButtonBlockClass')}
       onclick={register}

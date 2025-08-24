@@ -180,7 +180,7 @@
   <!-- Action button -->
   <ActionGroup>
     <Button
-      type="submit"
+      type="button"
       id="authenticateWebAuthnButton"
       class={kcClsx('kcButtonPrimaryClass', 'kcButtonBlockClass')}
       onclick={authenticate}

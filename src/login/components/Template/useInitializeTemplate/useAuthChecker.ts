@@ -9,13 +9,17 @@ type AuthChecker = {
 export const useAuthChecker = () => {
   const { kcContext } = useKcContext();
   const checkAuth = async () => {
-    const { startSessionPolling, checkAuthSession }: AuthChecker = await import(
-      /* @vite-ignore */
-      `${BASE_URL}keycloak-theme/login/js/authChecker.js`
-    );
-    startSessionPolling(kcContext.url.ssoLoginInOtherTabsUrl);
-    if (kcContext.authenticationSession) {
-      checkAuthSession(kcContext.authenticationSession.authSessionIdHash);
+    try {
+      const { startSessionPolling, checkAuthSession }: AuthChecker = await import(
+        /* @vite-ignore */
+        `${BASE_URL}keycloak-theme/login/js/authChecker.js`
+      );
+      startSessionPolling(kcContext.url.ssoLoginInOtherTabsUrl);
+      if (kcContext.authenticationSession) {
+        checkAuthSession(kcContext.authenticationSession.authSessionIdHash);
+      }
+    } catch (err) {
+      console.error('Auth checker bootstrap failed', err);
     }
   };
   checkAuth();
