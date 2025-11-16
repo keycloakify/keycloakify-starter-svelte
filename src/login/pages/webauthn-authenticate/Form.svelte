@@ -5,7 +5,7 @@
   import ActionGroup from '../../components/buttons/ActionGroup.svelte';
   import Button from '../../components/buttons/Button.svelte';
   import { useI18n } from '../../i18n';
-  import { useScript } from './useScript';
+  import { useAuthenticate } from './useAuthenticate';
 
   const { kcContext } = useKcContext();
   assert(kcContext.pageId === 'webauthn-authenticate.ftl');
@@ -14,9 +14,7 @@
 
   const { url, authenticators, shouldDisplayAuthenticators } = kcContext;
 
-  const authButtonId = 'authenticateWebAuthnButton';
-
-  useScript({ authButtonId });
+  const { authenticate } = useAuthenticate();
 </script>
 
 <div
@@ -182,9 +180,10 @@
   <!-- Action button -->
   <ActionGroup>
     <Button
-      type="submit"
+      type="button"
       id="authenticateWebAuthnButton"
       class={kcClsx('kcButtonPrimaryClass', 'kcButtonBlockClass')}
+      onclick={authenticate}
     >
       {@render msg('webauthn-doAuthenticate')()}
     </Button>

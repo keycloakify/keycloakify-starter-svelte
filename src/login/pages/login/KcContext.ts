@@ -47,4 +47,10 @@ export const kcContextMock: KcContext = {
     rememberMe: 'on',
   },
   registrationDisabled: false,
+  enableWebAuthnConditionalUI: true,
+  challenge: 'cmFuZG9tLWNoYWxsZW5nZS1zdHJpbmc', // must be base64 url encoded for the webauthnRegister script
+  rpId: 'example.com',
+  createTimeout: 60000,
+  isUserIdentified: 'false',
+  userVerification: 'not specified',
 };

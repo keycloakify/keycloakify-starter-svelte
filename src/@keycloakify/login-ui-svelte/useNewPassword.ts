@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-namespace */
 import { onMount, type EventDispatcher, type Snippet } from 'svelte';
 import { derived, type Readable } from 'svelte/store';
 import { assert, type Equals } from 'tsafe/assert';
@@ -131,21 +133,19 @@ export function useNewPassword(params: ParamsOfGetNewPasswordApi): ReturnTypeOfU
 
   const { advancedMsg, advancedMsgStr } = i18n;
 
-  const formState: Readable<FormState> = derived(formState_reactless, ($formState) => {
-    return {
-      areAllChecksPassed: $formState.areAllChecksPassed,
+  const formState: Readable<FormState> = derived(formState_reactless, ($formState) => ({
+    areAllChecksPassed: $formState.areAllChecksPassed,
 
-      formFieldStates: $formState.formFieldStates.map((formFieldState_reactless) => ({
-        attribute: formFieldState_reactless.attribute,
-        value: formFieldState_reactless.value,
-        displayableErrors: formFieldState_reactless.displayableErrors.map((formFieldError_reactless) => ({
-          errorMessage: advancedMsg(...formFieldError_reactless.advancedMsgArgs),
-          errorMessageStr: advancedMsgStr(...formFieldError_reactless.advancedMsgArgs),
-          source: formFieldError_reactless.source,
-        })),
+    formFieldStates: $formState.formFieldStates.map((formFieldState_reactless) => ({
+      attribute: formFieldState_reactless.attribute,
+      value: formFieldState_reactless.value,
+      displayableErrors: formFieldState_reactless.displayableErrors.map((formFieldError_reactless) => ({
+        errorMessage: advancedMsg(...formFieldError_reactless.advancedMsgArgs),
+        errorMessageStr: advancedMsgStr(...formFieldError_reactless.advancedMsgArgs),
+        source: formFieldError_reactless.source,
       })),
-    };
-  });
+    })),
+  }));
 
   return {
     formState,
