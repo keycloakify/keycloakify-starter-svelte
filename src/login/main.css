@@ -1,6 +1,9 @@
 /* .kcFormHeaderClass {
     border: 3px solid red;
 }  */
+@import "tailwindcss";
+
+
 .kcButtonClass {
     padding: 10px 20px;
     font-size: 16px;
