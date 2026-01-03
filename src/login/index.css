@@ -1,7 +1,20 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body.kcBodyClass {
+    @apply bg-[url(./assets/background.svg)] bg-no-repeat bg-center bg-fixed;
+}
+
+.kcHeaderWrapperClass {
+    @apply text-3xl font-bold underline;
+}
+
 /* .kcFormHeaderClass {
     border: 3px solid red;
 }  */
-@import "tailwindcss";
 
 
 .kcButtonClass {

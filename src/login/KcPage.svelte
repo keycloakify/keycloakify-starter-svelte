@@ -5,9 +5,10 @@
   import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
   import type { Component } from 'svelte';
   import { useI18n } from './i18n';
-  import "./main.css";
   const { kcContext }: { kcContext: KcContext } = $props();
   const { i18n } = useI18n({ kcContext });
+  // import "./main.css";
+  import "./index.css";
 // const classes = {
 //     kcButtonClass: "",
 //     kcButtonPrimaryClass: "",
