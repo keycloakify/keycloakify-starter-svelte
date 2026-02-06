@@ -6,7 +6,6 @@
   import type { Component } from 'svelte';
   import { useI18n } from './i18n/i18n';
   const { kcContext }: { kcContext: KcContext } = $props();
-
   const { i18n } = useI18n({ kcContext });
   // import "./main.css";
   
@@ -41,7 +40,7 @@
    }
  }
 </script>
-
+<!-- 
 {#await page() then { default: Page }}
   <Page
     {kcContext}
@@ -52,4 +51,16 @@
     doUseDefaultCss={true}
     {doMakeUserConfirmPassword}
   ></Page>
+{/await}
+ -->
+{#await page() then { default: Page }}
+    <Page
+      {kcContext}
+      i18n={i18n}
+      {classes}
+      {Template}
+      {UserProfileFormFields}
+      {doUseDefaultCss}
+      {doMakeUserConfirmPassword}
+    ></Page>
 {/await}
