@@ -5,7 +5,7 @@
   import PasswordWrapper from './PasswordWrapper.svelte';
   import SelectTag from './SelectTag.svelte';
   import TextareaTag from './TextareaTag.svelte';
-  import type { I18n } from '../i18n';
+  import type { I18n } from '../i18n/i18n';
 
   let { displayableErrors, ...props }: InputFieldByTypeProps<I18n> = $props();
   const { attribute, valueOrValues } = props;

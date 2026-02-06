@@ -6,4 +6,5 @@ export const en = {
   usernameOrEmail: 'Email Address',
 
   registerTitle: 'Create Your Account',
+  doRegister: 'Save Store & Continue',
 };

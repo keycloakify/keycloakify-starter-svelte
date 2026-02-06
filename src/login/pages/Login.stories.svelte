@@ -26,16 +26,13 @@
         username: 'johndoe',
       },
       messagesPerField: {
-        // NOTE: The other functions of messagesPerField are derived from get() and
-        // existsError() so they are the only ones that need to mock.
-        existsError: (fieldName: string, ...otherFieldNames: string[]) => {
-          const fieldNames = [fieldName, ...otherFieldNames];
-          return fieldNames.includes('username') || fieldNames.includes('password');
+        // Return true ONLY if the specific field has an error
+        existsError: (fieldName: string) => {
+           return fieldName === 'password'; // Simulate error only on Email for this test
         },
         get: (fieldName: string) => {
-          if (fieldName === 'username' || fieldName === 'password') {
-            return 'Invalid username or password.';
-          }
+          if (fieldName === 'username') return 'Invalid email address.';
+          if (fieldName === 'password') return 'Password is required.';
           return '';
         },
       },

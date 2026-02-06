@@ -109,11 +109,11 @@
         id="kc-form-options"
         class={kcClsx('kcFormOptionsClass')}
       >
-        <div class={kcClsx('kcFormOptionsWrapperClass')}>
+        <!-- <div class={kcClsx('kcFormOptionsWrapperClass')}>
           <span>
             <a href={url.loginUrl}>{@render msg('backToLogin')()}</a>
           </span>
-        </div>
+        </div> -->
       </div>
       {#if recaptchaRequired && !recaptchaVisible && recaptchaAction !== undefined}
         <div
@@ -140,7 +140,7 @@
         >
           <input
             disabled={!$isFormSubmittable || (termsAcceptanceRequired && !$areTermsAccepted)}
-            class={kcClsx('kcButtonClass', 'kcButtonPrimaryClass', 'kcButtonBlockClass', 'kcButtonLargeClass')}
+            
             type="submit"
             value={msgStr('doRegister')}
           />

@@ -80,8 +80,8 @@
                     aria-hidden="true"
                   ></i>
                 {/if}
-                <span class={clsx(kcClsx('kcFormSocialAccountNameClass'), p.iconClasses && 'kc-social-icon-text')}
-                  >{@html kcSanitize(p.displayName)}</span
+                <div class={clsx(kcClsx('kcFormSocialAccountNameClass'), p.iconClasses && 'kc-social-icon-text')}
+                  >{@html kcSanitize(p.displayName)}</div
                 >
               </a>
             </li>
@@ -118,26 +118,31 @@
               <input
                 tabindex={2}
                 id="username"
-                class={kcClsx('kcInputClass')}
+                class={clsx(
+    kcClsx('kcInputClass'),
+    /* Only show red if username has an error */
+    messagesPerField.existsError('username') && "border-red-500 ring-1 ring-red-500"
+  )}
                 placeholder={msgStr('username.placeholder')}
                 name="username"
                 value={login.username ?? ''}
                 type="text"
                 autofocus
                 autocomplete="username"
-                aria-invalid={messagesPerField.existsError('username', 'password')}
+                aria-invalid={messagesPerField.existsError('username')}
               />
-              {#if messagesPerField.existsError('username', 'password')}
-                <span
+              {#if messagesPerField.existsError('username')}
+                <div
                   id="input-error"
                   class={kcClsx('kcInputErrorMessageClass')}
-                  aria-live="polite">{@html kcSanitize(messagesPerField.getFirstError('username', 'password'))}</span
+                  aria-live="polite">{@html kcSanitize(messagesPerField.getFirstError('username'))}</div
                 >
               {/if}
             </div>
           {/if}
 
-          <div class={kcClsx('kcFormGroupClass')}>
+          <div class={clsx(kcClsx('kcFormGroupClass'), 'my-0 py-0 flex-col')}>
+            <div></div>
             <label
               for="password"
               class={kcClsx('kcLabelClass')}
@@ -152,19 +157,22 @@
               <input
                 tabindex={3}
                 id="password"
-                class={kcClsx('kcInputClass')}
+                class={clsx(
+                kcClsx('kcInputClass'),
+                messagesPerField.existsError('password') && "border-red-500 ring-1 ring-red-500"
+                )}
                 placeholder={msgStr('password.placeholder')}
                 name="password"
                 type="password"
                 autocomplete="current-password"
-                aria-invalid={messagesPerField.existsError('username', 'password')}
+                aria-invalid={messagesPerField.existsError('password')}
               />
             </PasswordWrapper>
-            {#if usernameHidden && messagesPerField.existsError('username', 'password')}
-              <span
+              {#if messagesPerField.existsError('password')}
+              <div
                 id="input-error"
                 class={kcClsx('kcInputErrorMessageClass')}
-                aria-live="polite">{@html kcSanitize(messagesPerField.getFirstError('username', 'password'))}</span
+                aria-live="polite">{@html kcSanitize(messagesPerField.getFirstError('password'))}</div
               >
             {/if}
           </div>
@@ -194,11 +202,11 @@
               id="id-hidden-input"
               name="credentialId"
               value={auth.selectedCredential}/>
-             <div class="flex items-center justify-between w-md mt-7">
+             <div class="flex items-center justify-between w-full">
               <input
               tabindex={7}
               disabled={$isLoginButtonDisabled}
-              class="bg-[#360940] py-3 w-1/2 text-center text-white text-base rounded-lg cursor-pointer transition-all"
+              class="bg-[#360940] my-4 py-3 w-1/2 text-center text-white text-base rounded-lg cursor-pointer transition-all"
               name="login"
               id="kc-login"
               type="submit"

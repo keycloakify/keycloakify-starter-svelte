@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import "tailwindcss";
-
 @theme {
   --font-nunito: "Nunito Sans", sans-serif;
 }
@@ -11,16 +10,28 @@ body.kcBodyClass {
 }
 .kcInputClass {
     
-    @apply bg-[#F6F6F6] border-none rounded-md py-3 px-4 my-1 w-md ;
+    @apply bg-[#F6F6F6] border-transparent rounded-md py-3 px-4 my-2 w-full ;
     @apply text-sm text-black placeholder:text-[#696464AB] transition-all ;
-    @apply focus:outline-none focus:bg-white;
-    @apply focus:border-[#360940] focus:ring-1 focus:ring-[#360940] ;
+    @apply focus:outline-none;
+    @apply  focus:ring-1 focus:ring-[#3B1045] ;
 }
+
 .kcLabelClass {
-    @apply text-black font-semibold text-base my-1 block;
+    @apply text-black font-semibold text-base  block;
 }
 .kcInputErrorMessageClass {
-    @apply text-red-500 text-xs mt-1 font-semibold ;
+    @apply text-red-500 text-xs mb-1 font-normal ;
+    
+}
+.kcInputHelperTextBeforeClass{
+    @apply text-xs font-medium text-[#360940] mb-1;
+}
+.kcInputGroup {
+    /* REMOVE height: 58px; */
+    @apply  flex items-center w-full transition-all;
+}
+.kcFormButtonsClass{
+    @apply bg-[#360940] my-4 py-3 text-center text-white text-base rounded-md w-xs cursor-pointer transition-all;
 }
 /* #kc-form-buttons {
     @apply bg-[#360940] py-3 text-center text-white text-base rounded-md;

@@ -3,7 +3,7 @@
   import type { KcClsx } from 'keycloakify/login/lib/kcClsx';
   import { assert } from 'keycloakify/tools/assert';
   import { onMount, type Snippet } from 'svelte';
-  import type { I18n } from '../i18n';
+  import type { I18n } from '../i18n/i18n';
   import type { Readable } from 'svelte/store';
 
   const props: { kcClsx: KcClsx; i18n: Readable<I18n>; passwordInputId: string; children: Snippet } = $props();
@@ -25,19 +25,22 @@
     return () => unsubscribe();
   });
 </script>
-
-<div class={kcClsx('kcInputGroup')}>
+<div class="flex flex-col w-full my-0 py-0">
+<div class="{kcClsx('kcInputGroup')} py-0 my-0">
   {@render children?.()}
   <button
     type="button"
-    class={kcClsx('kcFormPasswordVisibilityButtonClass')}
+    
+    class="{kcClsx('kcFormPasswordVisibilityButtonClass')}"
     aria-label={msgStr($isPasswordRevealed ? 'hidePassword' : 'showPassword')}
     aria-controls={passwordInputId}
     onclick={() => toggleIsPasswordRevealed($isPasswordRevealed)}
   >
     <i
-      class={kcClsx($isPasswordRevealed ? 'kcFormPasswordVisibilityIconHide' : 'kcFormPasswordVisibilityIconShow')}
+      
+      class="{kcClsx($isPasswordRevealed ? 'kcFormPasswordVisibilityIconHide' : 'kcFormPasswordVisibilityIconShow')}"
       aria-hidden="true"
     ></i>
   </button>
+</div>
 </div>

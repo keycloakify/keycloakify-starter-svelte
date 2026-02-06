@@ -15,7 +15,7 @@
 {#snippet fieldErrors()}
   {@const _displayableErrors = displayableErrors.filter((error) => error.fieldIndex === fieldIndex)}
   {#if _displayableErrors.length !== 0}
-    <span
+    <div
       id={`input-error-${attribute.name}${fieldIndex === undefined ? '' : `-${fieldIndex}`}`}
       class={kcClsx('kcInputErrorMessageClass')}
       aria-live="polite"
@@ -25,7 +25,7 @@
         {@render errorMessage()}
         {#if _displayableErrors.length - 1 !== i}<br />{/if}
       {/each}
-    </span>
+</div>
   {/if}
 {/snippet}
 {@render fieldErrors()}

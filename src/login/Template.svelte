@@ -45,9 +45,9 @@
 </script>
 
 {#if $isReadyToRender}
-  <div class="w-full flex font-sans min-h-screen" style="font-family: 'Nunito Sans', sans-serif;">
-    
-    <div class="hidden lg:flex w-[40%] flex-col pt-32 px-16 text-white">
+  <div class="w-full flex justify-center font-sans min-h-screen" style="font-family: 'Nunito Sans', sans-serif;">
+    <div class="w-full max-w-7xl flex flex-row min-h-screen">
+    <div class="flex w-[40%] flex-col pt-32 px-16 text-white">
         <h1 class="text-[64px] font-bold">BoXe</h1>
         <p class="text-xl font-normal mb-4 opacity-90 leading-relaxed">
             Start selling online in<br>just a few minutes.
@@ -65,31 +65,33 @@
     </a>
         </div>
     </div>
-
+    
    <div class="w-full lg:w-[60%] flex items-center justify-center">
-    <div class="w-full max-w-222 bg-white rounded-md shadow-2xl flex flex-col h-full pt-34 items-center px-6 sm:px-8 lg:px-22 overflow-y-auto">  
-            <header class="mb-6 w-full px-12">
+    <div class="w-full max-w-222 bg-white rounded-md shadow-2xl  flex flex-col h-full pt-34 items-center px-6 sm:px-8 lg:px-22 overflow-y-auto">  
+            <header class="mb-6 w-full">
                 <h2 class="text-3xl font-bold text-left text-black">
                     {@render headerNode?.()}
                 </h2>
             </header>
 
             {#if displayMessage && message !== undefined && (message.type !== 'warning' || !isAppInitiatedAction)}
-                <div class="w-[80%] p-4 mb-4 rounded-xl text-sm {message.type === 'error' ? 'bg-red-50 text-red-600' : 'bg-blue-50 text-blue-600'}">
+                <div class="w-full mb-6 p-4 rounded-md text-sm {message.type === 'error' ? 'bg-red-50 text-red-600' : 'bg-blue-50 text-blue-600'}">
                     {@html kcSanitize(message.summary)}
                 </div>
             {/if}
 
-            <div id="kc-content" class="w-full px-12 flex-1">
+            <div id="kc-content" class="w-full flex-1">
                 {@render children?.()}
             </div>
 
             {#if displayInfo}
-                <div class="pb-12 text-left w-full px-12">
+                <div class="pb-12 text-left w-full">
                     {@render infoNode?.()}
                 </div>
             {/if}
         </div>
     </div>
+    </div>
+
   </div>
 {/if}

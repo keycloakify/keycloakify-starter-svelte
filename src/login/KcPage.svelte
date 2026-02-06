@@ -25,6 +25,8 @@
     switch(kcContext.pageId){
       case "login.ftl": return false;
       case "register.ftl": return false;
+      case "login-password.ftl": 
+      return false;
       default: return true;
     }
   })();
@@ -34,6 +36,8 @@
        return import('./pages/LoginTemp.svelte');
     case 'register.ftl':
       return import('./pages/RegisterTemp.svelte');
+    case 'login-password.ftl':
+      return import('./pages/LoginPassword.svelte');
 
      default:
        return import('@keycloakify/svelte/login/DefaultPage.svelte');
@@ -58,7 +62,7 @@
       {kcContext}
       i18n={i18n}
       {classes}
-      {Template}
+      {Template} 
       {UserProfileFormFields}
       {doUseDefaultCss}
       {doMakeUserConfirmPassword}
