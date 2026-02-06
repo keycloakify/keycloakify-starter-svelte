@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-nunito: "Nunito Sans", sans-serif;
+}
+
+body.kcBodyClass {
+    font-family: var(--font-nunito);
+    @apply bg-[url(./assets/background.svg)] bg-no-repeat w-full bg-cover;
+}
+.kcInputClass {
+    
+    @apply bg-[#F6F6F6] border-none rounded-md py-3 px-4 my-1 w-md ;
+    @apply text-sm text-black placeholder:text-[#696464AB] transition-all ;
+    @apply focus:outline-none focus:bg-white;
+    @apply focus:border-[#360940] focus:ring-1 focus:ring-[#360940] ;
+}
+.kcLabelClass {
+    @apply text-black font-semibold text-base my-1 block;
+}
+.kcInputErrorMessageClass {
+    @apply text-red-500 text-xs mt-1 font-semibold ;
+}
+/* #kc-form-buttons {
+    @apply bg-[#360940] py-3 text-center text-white text-base rounded-md;
+} */
