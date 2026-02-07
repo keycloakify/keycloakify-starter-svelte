@@ -74,7 +74,7 @@
               autofocus
               autocomplete="on"
               placeholder={msgStr('password.placeholder.login')}
-              aria-invalid={messagesPerField.existsError('username', 'password')}
+              aria-invalid={messagesPerField.existsError('password')}
             />
           </PasswordWrapper>
 
@@ -109,7 +109,7 @@
         <div class="flex items-center justify-between w-full">
           <input
             tabindex={4}
-            class="bg-[#360940] my-4 py-3 w-1/2 text-center text-white text-base rounded-lg cursor-pointer transition-all"
+            class="bg-[#360940] disabled:opacity-50 disabled:cursor-not-allowed my-4 py-3 w-1/2 text-center text-white text-base rounded-lg cursor-pointer transition-all"
             name="login"
             id="kc-login"
             type="submit"

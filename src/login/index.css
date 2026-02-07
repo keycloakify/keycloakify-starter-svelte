@@ -32,7 +32,7 @@ body.kcBodyClass {
     @apply  flex items-center w-full transition-all;
 }
 .kcFormButtonsClass{
-    @apply bg-[#360940] my-4 py-3 text-center text-white text-base rounded-md w-xs cursor-pointer transition-all;
+    @apply bg-[#360940] my-4 py-3 text-center text-white text-base rounded-md max-w-xs cursor-pointer transition-all;
 }
 .kcInputClass[readonly] {
     @apply opacity-60 cursor-not-allowed bg-gray-100;

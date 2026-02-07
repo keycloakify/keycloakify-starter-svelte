@@ -97,7 +97,6 @@
           id="kc-form-login"
           onsubmit={() => {
             setIsLoginButtonDisabled(true);
-            return true;
           }}
           action={url.loginAction}
           method="post"

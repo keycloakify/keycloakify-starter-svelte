@@ -77,8 +77,8 @@
   {#if typeof valueOrValues === 'string'}
     <input type="hidden" name={attribute.name} value={valueOrValues} />
   {:else if Array.isArray(valueOrValues)}
-    {#each valueOrValues as val}
-      <input type="hidden" name={attribute.name} value={val} />
-    {/each}
+   {#each valueOrValues as val (val)}
+  <input type="hidden" name={attribute.name} value={val} />
+{/each}
   {/if}
 {/if}
