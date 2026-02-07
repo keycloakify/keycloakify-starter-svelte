@@ -58,7 +58,9 @@
                     displayName: field.attribute.name === 'email' ? msgStr('email.label' as any) : field.attribute.displayName,
                     annotations: {
                         ...field.attribute.annotations,
-                        inputTypePlaceholder: msgStr(pKey as any)
+                        inputTypePlaceholder: field.attribute.name === 'password' 
+                            ? msgStr('password.placeholder.register') 
+                            : msgStr(pKey as any)
                     }
                 }
             });
@@ -75,22 +77,26 @@
 <div class="grid grid-cols-1 md:grid-cols-1 gap-x-4">
   <div class="flex flex-col md:flex-row md:space-x-4">
   {#each $sortedFormFieldStates.filter(f => f.attribute.name === 'firstName' || f.attribute.name === 'lastName') as formFieldState (formFieldState.attribute.name)}
-      {@const { attribute, valueOrValues, displayableErrors: fieldErrors } = formFieldState}
-      <div class="flex-1">
+    {@const { attribute, valueOrValues, displayableErrors: fieldErrors } = formFieldState}
+    <div class="flex-1">
         <GroupLabel {attribute} {groupNameRef} {i18n} {kcClsx} />
         <div class={kcClsx('kcFormGroupClass')} style:display={attribute.annotations.inputType === 'hidden' ? 'none' : undefined}>
-          <div class={kcClsx('kcLabelWrapperClass')}>
-            <label for={attribute.name} class={kcClsx('kcLabelClass')}>
-              {@render advancedMsg(attribute.displayName ?? '')()}
-            </label>
-          </div>
-          <div class={kcClsx('kcInputWrapperClass')}>
-            <InputFieldByType {attribute} {valueOrValues} displayableErrors={fieldErrors} {dispatchFormAction} {kcClsx} {i18n} />
-            <FieldErrors {attribute} displayableErrors={fieldErrors} {kcClsx} />
-          </div>
+            <div class={kcClsx('kcLabelWrapperClass')}>
+                <label for={attribute.name} class={kcClsx('kcLabelClass')}>
+                    {@render advancedMsg(attribute.displayName ?? '')()}
+                </label>
+            </div>
+            <div class={kcClsx('kcInputWrapperClass')}>
+                <InputFieldByType {attribute} {valueOrValues} displayableErrors={fieldErrors} {dispatchFormAction} {kcClsx} {i18n} />
+                <FieldErrors {attribute} displayableErrors={fieldErrors} {kcClsx} />
+
+                {#if afterField}
+                    {@render afterField({ attribute, dispatchFormAction, displayableErrors: fieldErrors, valueOrValues, kcClsx, i18n })}
+                {/if}
+            </div>
         </div>
-      </div>
-    {/each}
+    </div>
+{/each}
   </div>
 {#each $sortedFormFieldStates.filter(f => f.attribute.name !== 'firstName' && f.attribute.name !== 'lastName') as formFieldState (formFieldState.attribute.name)}
     {@const { attribute, valueOrValues, displayableErrors: fieldErrors } = formFieldState}

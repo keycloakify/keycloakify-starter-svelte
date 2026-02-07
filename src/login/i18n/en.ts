@@ -2,7 +2,8 @@
 export const en = {
   loginAccountTitle: 'Sign In',
   'username.placeholder': 'example@email.com',
-  'password.placeholder': 'Create a password',
+  'password.placeholder.login': 'Enter your password',
+  'password.placeholder.register': 'Create a password',
   usernameOrEmail: 'Email Address',
 
   'email.label': 'Email Address',

@@ -73,6 +73,7 @@
               type="password"
               autofocus
               autocomplete="on"
+              placeholder={msgStr('password.placeholder.login')}
               aria-invalid={messagesPerField.existsError('username', 'password')}
             />
           </PasswordWrapper>

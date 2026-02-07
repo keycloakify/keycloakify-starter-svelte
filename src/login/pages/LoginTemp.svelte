@@ -71,7 +71,7 @@
                   'kcFormSocialAccountListButtonClass',
                   providers.length > 3 && 'kcFormSocialAccountGridItem',
                 )}
-                type="button"
+                
                 href={p.loginUrl}
               >
                 {#if p.iconClasses}
@@ -161,7 +161,7 @@
                 kcClsx('kcInputClass'),
                 messagesPerField.existsError('password') && "border-red-500 ring-1 ring-red-500"
                 )}
-                placeholder={msgStr('password.placeholder')}
+                placeholder={msgStr('password.placeholder.login')}
                 name="password"
                 type="password"
                 autocomplete="current-password"

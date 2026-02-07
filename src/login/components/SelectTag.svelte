@@ -67,15 +67,18 @@
 >
   {#if !isMultiple}<option value=""></option>{/if}
   {#each options as option (option)}
+    {@const labelSnippet = inputLabel($i18n, attribute, option) as any}
     <option value={option}>
-      {@render inputLabel($i18n, attribute, option)()}
+      {@render labelSnippet()}
     </option>
   {/each}
 </select>
 {#if attribute.readOnly}
-  <input 
-    type="hidden" 
-    name={attribute.name} 
-    value={typeof valueOrValues === 'string' ? valueOrValues : ''} 
-  />
+  {#if typeof valueOrValues === 'string'}
+    <input type="hidden" name={attribute.name} value={valueOrValues} />
+  {:else if Array.isArray(valueOrValues)}
+    {#each valueOrValues as val}
+      <input type="hidden" name={attribute.name} value={val} />
+    {/each}
+  {/if}
 {/if}
