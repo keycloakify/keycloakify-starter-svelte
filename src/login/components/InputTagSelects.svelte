@@ -2,7 +2,7 @@
   import type { InputFieldByTypeProps } from '@keycloakify/svelte/login/components/InputFieldByTypeProps';
   import { inputLabel } from '@keycloakify/svelte/login/components/inputLabel';
   import { assert } from 'keycloakify/tools/assert';
-  import type { I18n } from '../i18n';
+  import type { I18n } from '../i18n/i18n';
 
   const { attribute, dispatchFormAction, kcClsx, i18n, valueOrValues, displayableErrors }: InputFieldByTypeProps<I18n> =
     $props();

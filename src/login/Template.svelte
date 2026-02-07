@@ -45,7 +45,7 @@
 </script>
 
 {#if $isReadyToRender}
-  <div class="w-full flex justify-center font-sans min-h-screen" style="font-family: 'Nunito Sans', sans-serif;">
+  <div class="w-full flex justify-center min-h-screen font-Nunito">
     <div class="w-full max-w-7xl flex flex-row min-h-screen">
     <div class="flex w-[40%] flex-col pt-32 px-16 text-white">
         <h1 class="text-[64px] font-bold">BoXe</h1>

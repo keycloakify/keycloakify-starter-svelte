@@ -133,7 +133,7 @@
               />
               {#if messagesPerField.existsError('username')}
                 <div
-                  id="input-error"
+                  id="input-error-username"
                   class={kcClsx('kcInputErrorMessageClass')}
                   aria-live="polite">{@html kcSanitize(messagesPerField.getFirstError('username'))}</div
                 >
@@ -170,7 +170,7 @@
             </PasswordWrapper>
               {#if messagesPerField.existsError('password')}
               <div
-                id="input-error"
+                id="input-error-password"
                 class={kcClsx('kcInputErrorMessageClass')}
                 aria-live="polite">{@html kcSanitize(messagesPerField.getFirstError('password'))}</div
               >

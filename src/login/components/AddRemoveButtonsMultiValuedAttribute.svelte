@@ -6,7 +6,7 @@
   import type { Attribute } from 'keycloakify/login/KcContext';
   import type { EventDispatcher } from 'svelte';
   import type { Readable } from 'svelte/store';
-  import type { I18n } from '../i18n';
+  import type { I18n } from '../i18n/i18n';
 
   type AddRemoveButtonsMultiValuedAttributeProps = {
     attribute: Attribute;

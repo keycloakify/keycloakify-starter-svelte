@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { InputFieldByTypeProps } from '@keycloakify/svelte/login/components/InputFieldByTypeProps';
   import { assert } from 'keycloakify/tools/assert';
-  import type { I18n } from '../i18n';
+  import type { I18n } from '../i18n/i18n';
 
   const { attribute, dispatchFormAction, kcClsx, displayableErrors, valueOrValues }: InputFieldByTypeProps<I18n> =
     $props();
@@ -16,7 +16,8 @@
   name={attribute.name}
   class={kcClsx('kcInputClass')}
   aria-invalid={displayableErrors.length !== 0}
-  disabled={attribute.readOnly}
+  
+  readonly={attribute.readOnly}
   cols={attribute.annotations.inputTypeCols === undefined
     ? undefined
     : parseInt(`${attribute.annotations.inputTypeCols}`)}

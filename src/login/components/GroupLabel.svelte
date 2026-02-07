@@ -3,7 +3,7 @@
   import type { KcClsx } from 'keycloakify/login/lib/kcClsx';
   import { assert } from 'keycloakify/tools/assert';
   import { createRawSnippet } from 'svelte';
-  import type { I18n } from '../i18n';
+  import type { I18n } from '../i18n/i18n';
   import type { Readable } from 'svelte/store';
 
   type GroupLabelProps = {

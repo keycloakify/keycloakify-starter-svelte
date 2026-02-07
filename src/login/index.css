@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..900;1,6..12,200..900&display=swap');
 @import "tailwindcss";
 @theme {
-  --font-nunito: "Nunito Sans", sans-serif;
+  --font-Nunito: "Nunito Sans", sans-serif;
 }
 
 body.kcBodyClass {
@@ -32,6 +33,9 @@ body.kcBodyClass {
 }
 .kcFormButtonsClass{
     @apply bg-[#360940] my-4 py-3 text-center text-white text-base rounded-md w-xs cursor-pointer transition-all;
+}
+.kcInputClass[readonly] {
+    @apply opacity-60 cursor-not-allowed bg-gray-100;
 }
 /* #kc-form-buttons {
     @apply bg-[#360940] py-3 text-center text-white text-base rounded-md;

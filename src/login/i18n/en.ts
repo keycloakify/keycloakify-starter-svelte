@@ -5,6 +5,11 @@ export const en = {
   'password.placeholder': 'Create a password',
   usernameOrEmail: 'Email Address',
 
+  'email.label': 'Email Address',
+  'firstName.placeholder': 'Jack',
+  'lastName.placeholder': 'Albert',
+  'email.placeholder': 'example@email.com',
+
   registerTitle: 'Create Your Account',
   doRegister: 'Save Store & Continue',
 };

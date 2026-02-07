@@ -139,7 +139,7 @@
           class={kcClsx('kcFormButtonsClass')}
         >
           <input
-            disabled={!$isFormSubmittable || (termsAcceptanceRequired && !$areTermsAccepted)}
+            disabled={!$isFormSubmittable}
             
             type="submit"
             value={msgStr('doRegister')}
