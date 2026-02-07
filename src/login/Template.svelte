@@ -48,21 +48,23 @@
   <div class="w-full flex justify-center min-h-screen font-Nunito">
     <div class="w-full max-w-7xl flex flex-row min-h-screen">
     <div class="flex w-[40%] flex-col pt-32 px-16 text-white">
-        <h1 class="text-[64px] font-bold">BoXe</h1>
+        <h1 class="text-[64px] font-bold">{msgStr('brandTitle')}</h1>
         <p class="text-xl font-normal mb-4 opacity-90 leading-relaxed">
-            Start selling online in<br>just a few minutes.
+            {msgStr('brandSubtitle')}
         </p>
         <div class="w-22 h-px bg-white/80 mb-16"></div>
         
         <div class="mt-4">
             <p class="mb-2.5 font-normal">
-                {kcContext.pageId === 'register.ftl' ? 'Already a user?' : 'Not Registered yet?'}
+                {kcContext.pageId === 'register.ftl' ? msgStr('alreadyAUser') : msgStr('notRegisteredYet')}
             </p>
             
-           <a href={kcContext.pageId === 'register.ftl' ? url.loginUrl : (url as any).registrationUrl ?? '#'} 
-       class="inline-block border border-white/40 rounded-md py-2 px-12 hover:bg-white hover:text-[#431048] transition-all duration-300">
-        {kcContext.pageId === 'register.ftl' ? 'Sign In' : 'Sign Up'}
-    </a>
+           <a 
+  href={kcContext.pageId === 'register.ftl' ? url.loginUrl : ('registrationUrl' in url ? url.registrationUrl : '#')} 
+  class="inline-block border border-white/40 rounded-md py-2 px-12 hover:bg-white hover:text-[#431048] transition-all duration-300"
+>
+  {kcContext.pageId === 'register.ftl' ? msgStr('signIn') : msgStr('signUp')}
+</a>
         </div>
     </div>
     
@@ -75,9 +77,14 @@
             </header>
 
             {#if displayMessage && message !== undefined && (message.type !== 'warning' || !isAppInitiatedAction)}
-                <div class="w-full mb-6 p-4 rounded-md text-sm {message.type === 'error' ? 'bg-red-50 text-red-600' : 'bg-blue-50 text-blue-600'}">
-                    {@html kcSanitize(message.summary)}
-                </div>
+                <div class="w-full mb-6 p-4 rounded-md text-sm {
+    message.type === 'error' ? 'bg-red-50 text-red-600' : 
+    message.type === 'warning' ? 'bg-yellow-50 text-yellow-700' : 
+    message.type === 'success' ? 'bg-green-50 text-green-600' : 
+    'bg-blue-50 text-blue-600'
+}">
+    {@html kcSanitize(message.summary)}
+</div>
             {/if}
 
             <div id="kc-content" class="w-full flex-1">

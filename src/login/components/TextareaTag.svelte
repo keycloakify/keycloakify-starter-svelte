@@ -8,7 +8,7 @@
 
   assert(typeof valueOrValues === 'string');
 
-  const value = valueOrValues;
+const value = $derived(valueOrValues);
 </script>
 
 <textarea

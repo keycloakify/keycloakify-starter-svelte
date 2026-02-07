@@ -32,7 +32,7 @@
   {doUseDefaultCss}
   {classes}
   displayMessage={!messagesPerField.existsError('username', 'password')}
-  displayInfo={realm.password && realm.registrationAllowed && !registrationDisabled}
+  displayInfo={false}
 >
   {#snippet headerNode()}
     {@render msg('loginAccountTitle')()}

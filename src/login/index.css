@@ -6,7 +6,7 @@
 }
 
 body.kcBodyClass {
-    font-family: var(--font-nunito);
+    font-family: var(--font-Nunito);
     @apply bg-[url(./assets/background.svg)] bg-no-repeat w-full bg-cover;
 }
 .kcInputClass {

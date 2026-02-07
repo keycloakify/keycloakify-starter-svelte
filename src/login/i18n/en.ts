@@ -12,4 +12,11 @@ export const en = {
 
   registerTitle: 'Create Your Account',
   doRegister: 'Save Store & Continue',
+
+  brandTitle: 'BoXe',
+  brandSubtitle: 'Start selling online in just a few minutes.',
+  alreadyAUser: 'Already a user?',
+  notRegisteredYet: 'Not Registered yet?',
+  signIn: 'Sign In',
+  signUp: 'Sign Up',
 };

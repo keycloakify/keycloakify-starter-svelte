@@ -72,3 +72,10 @@
     </option>
   {/each}
 </select>
+{#if attribute.readOnly}
+  <input 
+    type="hidden" 
+    name={attribute.name} 
+    value={typeof valueOrValues === 'string' ? valueOrValues : ''} 
+  />
+{/if}

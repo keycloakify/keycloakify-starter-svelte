@@ -36,9 +36,8 @@
 
   const groupNameRef = { current: '' };
   const formFieldStates = derived(formState, ($formState) => $formState.formFieldStates);
-  const displayableErrors = derived(formFieldStates, ($formFieldStates) =>
-    $formFieldStates.map((f) => f.displayableErrors),
-  );
+
+
 
   const desiredOrder = ['firstName', 'lastName', 'email', 'password'];
   
@@ -50,17 +49,15 @@
         const field = $formFieldStates.find(f => f.attribute.name === name);
         if (field) {
             const pKey = `${field.attribute.name}.placeholder`;
-            const lKey = `${field.attribute.name}.label`;
+            // DELETED: const lKey was removed from here
 
             ordered.push({
                 ...field,
                 attribute: {
                     ...field.attribute,
-                    // Use label from i18n if it exists, otherwise keep default
                     displayName: field.attribute.name === 'email' ? msgStr('email.label' as any) : field.attribute.displayName,
                     annotations: {
                         ...field.attribute.annotations,
-                        // Set placeholder from i18n
                         inputTypePlaceholder: msgStr(pKey as any)
                     }
                 }
