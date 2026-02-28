@@ -3,7 +3,7 @@
   import { getKcContextMock, type KcPageStoryProps } from './KcPageStory';
 
   const { pageId, kcContext }: KcPageStoryProps = $props();
-  const kcContextMock = getKcContextMock({ pageId, overrides: kcContext });
+  const kcContextMock = $derived(getKcContextMock({ pageId, overrides: kcContext }));
 </script>
 
 <KcPage kcContext={kcContextMock} />

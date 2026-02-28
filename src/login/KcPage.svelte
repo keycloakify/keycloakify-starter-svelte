@@ -3,12 +3,14 @@
   import UserProfileFormFields from '@keycloakify/svelte/login/components/UserProfileFormFields.svelte';
   import type { KcContext } from 'keycloakify/login/KcContext';
   import type { ClassKey } from 'keycloakify/login/lib/kcClsx';
-  import type { Component } from 'svelte';
+  import { untrack, type Component } from 'svelte';
   import { useI18n } from './i18n';
 
   const { kcContext }: { kcContext: KcContext } = $props();
 
-  const { i18n } = useI18n({ kcContext });
+  const { i18n } = useI18n({
+    kcContext: untrack(() => kcContext),
+  });
 
   const classes = {} satisfies { [key in ClassKey]?: string };
   const doMakeUserConfirmPassword = true;
