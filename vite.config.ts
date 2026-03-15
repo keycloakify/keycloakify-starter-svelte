@@ -1,6 +1,6 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { defineConfig } from 'vite';
 import { keycloakify } from 'keycloakify/vite-plugin';
+import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig({
