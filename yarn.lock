@@ -269,10 +269,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@keycloakify/svelte@^0.2.10-rc.2":
-  version "0.2.10-rc.2"
-  resolved "https://registry.yarnpkg.com/@keycloakify/svelte/-/svelte-0.2.10-rc.2.tgz#992f62c1cdd6e0361ab7857d7daba48195479a02"
-  integrity sha512-NuackxofAnGGmKWBuKvw0J3jkQt9srKEhRIcdM3w+uJ8TfN4ODeDZJ8WidvEQWymGt0Tp9UvUBcsRGXNcnfJOA==
+"@keycloakify/svelte@^0.2.11":
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/@keycloakify/svelte/-/svelte-0.2.11.tgz#42dca6d57b893b6ece3ef78feeb0303eac6ab4f4"
+  integrity sha512-L8On2MmxWBfZ6rIBRwGslAtuKU+44tR4zzDbbssHfDFrBthTcJGgkKJl+9iYBmNRr9hR6pzs6KWDCU3YQAXsrA==
 
 "@mdx-js/react@^3.0.0":
   version "3.1.1"
