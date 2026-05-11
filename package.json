@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@keycloakify/svelte": "^0.2.10-rc.2",
+    "@keycloakify/svelte": "^0.2.11",
     "@storybook/addon-docs": "^10.3.6",
     "@storybook/addon-svelte-csf": "5.1.2",
     "@storybook/svelte": "^10.3.6",
