@@ -1,0 +1,56 @@
+:root {
+  /* Brand */
+  --color-primary: #3b0a45;
+  --color-primary-hover: #4d135b;
+  --color-primary-pressed: #2a0732;
+  --color-brand-panel: #3b0a45;
+  --color-brand-panel-bg: #2a0732;
+
+  /* Accents */
+  --color-accent-green: #23a55a;
+
+  /* Text */
+  --color-text-dark: #000000;
+  --color-text-mid: #696464;
+  --color-text-muted: rgba(105, 100, 100, 0.67);
+  --color-text-on-dark: #ffffff;
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.72);
+  --color-text-light: #abb7c2;
+  --color-text-lighter: #93a3ab;
+
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-muted: #e6dfe6;
+  --color-input-bg: #f4f1f4;
+  --color-border: #d9d9d9;
+  --color-border-on-dark: rgba(255, 255, 255, 0.32);
+  --color-divider-on-dark: rgba(255, 255, 255, 0.24);
+
+  /* State */
+  --color-success: #23a55a;
+  --color-error: #dc3545;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Card / layout */
+  --card-width: 482px;
+  --card-radius: 20px;
+  --card-padding: 48px;
+
+  /* Inputs */
+  --input-height: 45px;
+  --input-radius: 6px;
+  --input-padding-x: 20px;
+
+  /* Buttons */
+  --button-height: 48px;
+  --button-radius: 6px;
+
+  /* Spacing scale */
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 30px;
+}

@@ -1,14 +1,17 @@
-import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { keycloakify } from 'keycloakify/vite-plugin';
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { keycloakify } from "keycloakify/vite-plugin";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    svelte(),
+    react(),
     keycloakify({
-      themeName: 'keycloakify-starter-svelte',
-      accountThemeImplementation: 'none',
-    }),
-  ],
+      themeName: "starky",
+      accountThemeImplementation: "none",
+      keycloakVersionTargets: {
+        "22-to-25": false,
+        "all-other-versions": true
+      }
+    })
+  ]
 });
