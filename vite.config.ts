@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     keycloakify({
-      themeName: "starky",
+      themeName: "boxe-store-owner",
       accountThemeImplementation: "none",
       keycloakVersionTargets: {
         "22-to-25": false,
