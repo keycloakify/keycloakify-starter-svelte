@@ -36,7 +36,7 @@
     "npm-check-updates": "^22.2.3",
     "prettier": "^3.8.3",
     "prettier-plugin-svelte": "^4.1.0",
-    "storybook": "^10.4.2",
+    "storybook": "^10.4.4",
     "svelte": "^5.56.2",
     "svelte-check": "^4.6.0",
     "tsafe": "^1.8.12",
