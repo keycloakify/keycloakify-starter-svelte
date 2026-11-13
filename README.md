@@ -11,7 +11,7 @@ This starter is based on Vite and Svelte.
 ```bash
 git clone https://github.com/keycloakify/keycloakify-starter-svelte
 cd keycloakify-starter-svelte
-yarn install # Or use an other package manager, just be sure to delete the yarn.lock if you use another package manager.
+pnpm install # Or use another package manager, just be sure to delete the pnpm-lock.yaml if you use another package manager.
 ```
 
 # Testing the theme locally
@@ -32,7 +32,7 @@ The `mvn` command must be in the $PATH.
 - On Windows: `choco install openjdk` and `choco install maven` (Or download from [here](https://maven.apache.org/download.cgi))
 
 ```bash
-yarn run build-keycloak-theme
+pnpm build-keycloak-theme
 ```
 
 Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.  
@@ -41,23 +41,23 @@ You can customize this behavior, see documentation [here](https://docs.keycloaki
 # Initializing the account theme
 
 ```bash
-yarn keycloakify initialize-account-theme
+pnpm keycloakify initialize-account-theme
 ```
 
 # Initializing the email theme
 
 ```bash
-yarn keycloakify initialize-email-theme
+pnpm keycloakify initialize-email-theme
 ```
 
 # Ejecting pages
 
 ```bash
-yarn keycloakify eject-page
+pnpm keycloakify eject-page
 ```
 
 # Adding storybook stories
 
 ```bash
-yarn keycloakify add-story
+pnpm keycloakify add-story
 ```

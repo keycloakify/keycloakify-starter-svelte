@@ -8,24 +8,24 @@ Keycloakify v11 starter for building Keycloak themes with Svelte 5 + Vite. Only 
 
 ## Commands
 
-Package manager is yarn (`yarn.lock`); Node version in `.nvmrc` (`lts/krypton`).
+Package manager is pnpm (`pnpm-lock.yaml`, `packageManager` in `package.json`; `pnpm-workspace.yaml` allows only esbuild's postinstall); Node version in `.nvmrc` (`lts/lithium`).
 
-- `yarn dev` — Vite dev server. Renders nothing unless `window.kcContext` is set (see "Local preview" below).
-- `yarn storybook` — Storybook on port 6006; the primary way to preview pages locally.
-- `yarn run check` — `svelte-check` type checking (plain `yarn check` runs yarn's built-in integrity check instead).
-- `yarn lint` — runs Prettier (write) then `eslint . --fix`. Both modify files.
-- `yarn build` — Vite build to `dist/`.
-- `yarn build-keycloak-theme` — Vite build + `keycloakify build`, producing `.jar` files in `dist_keycloak/`. Requires Maven (`mvn`) on `$PATH`.
+- `pnpm dev` — Vite dev server. Renders nothing unless `window.kcContext` is set (see "Local preview" below).
+- `pnpm storybook` — Storybook on port 6006; the primary way to preview pages locally.
+- `pnpm check` — `svelte-check` type checking.
+- `pnpm lint` — runs Prettier (write) then `eslint . --fix`. Both modify files.
+- `pnpm build` — Vite build to `dist/`.
+- `pnpm build-keycloak-theme` — Vite build + `keycloakify build`, producing `.jar` files in `dist_keycloak/`. Requires Maven (`mvn`) on `$PATH`.
 
 There is no test suite.
 
 Keycloakify CLI helpers (interactive):
 
-- `yarn keycloakify eject-page` — copy a page from `@keycloakify/svelte` into `src/` for customization.
-- `yarn keycloakify add-story` — generate a Storybook story for a page.
-- `yarn keycloakify initialize-account-theme` / `initialize-email-theme`.
+- `pnpm keycloakify eject-page` — copy a page from `@keycloakify/svelte` into `src/` for customization.
+- `pnpm keycloakify add-story` — generate a Storybook story for a page.
+- `pnpm keycloakify initialize-account-theme` / `initialize-email-theme`.
 
-These subcommands (and `update-kc-gen`) are implemented by `@keycloakify/svelte` (its `_keycloakify-custom-handler` bin), not by `keycloakify` itself. Its source lives in the sibling repo `../keycloakify-svelte`; running `yarn link-in-starter` there builds the library in watch mode and symlinks it (plus `keycloakify`, `svelte`, `typescript`) into this project's `node_modules`, so while linked the installed versions don't match `yarn.lock`.
+These subcommands (and `update-kc-gen`) are implemented by `@keycloakify/svelte` (its `_keycloakify-custom-handler` bin), not by `keycloakify` itself. Its source lives in the sibling repo `../keycloakify-svelte`; running `pnpm link-in-starter` there builds the library in watch mode and links it (plus `keycloakify`, `svelte`, `@sveltejs/vite-plugin-svelte`, `typescript`) into this project through `link:` overrides written in `pnpm-workspace.yaml`. Those overrides and the resulting `pnpm-lock.yaml` changes must not be committed: revert both files and run `pnpm install` to unlink.
 
 ## Architecture
 
@@ -36,7 +36,7 @@ Runtime flow: Keycloak serves the theme and injects `window.kcContext` → `src/
 - **Extending `KcContext`**: `src/login/KcContext.ts` defines `KcContextExtension` (global) and `KcContextExtensionPerPage`. Any field added there must also be provided in the mock in `src/login/KcPageStory.ts`.
 - **i18n**: `src/login/i18n.ts` builds `useI18n` via `i18nBuilder` from `@keycloakify/svelte/login`; custom/overridden message keys are added on that builder.
 - **Mocks / Storybook**: `src/login/KcPageStory.ts` exports `getKcContextMock` (from `createGetKcContextMock`), and `KcPageStory.svelte` renders `KcPage` with a mocked context for a given `pageId`. Stories are picked up from `src/**/*.stories.@(js|ts|svelte)` using `@storybook/addon-svelte-csf`.
-- **Local preview with `yarn dev`**: uncomment the block in `src/main.ts` that sets `window.kcContext = getKcContextMock({ pageId: ... })`. It must be commented back before building, otherwise mock code ends up in the bundle.
+- **Local preview with `pnpm dev`**: uncomment the block in `src/main.ts` that sets `window.kcContext = getKcContextMock({ pageId: ... })`. It must be commented back before building, otherwise mock code ends up in the bundle.
 
 ## Conventions
 
